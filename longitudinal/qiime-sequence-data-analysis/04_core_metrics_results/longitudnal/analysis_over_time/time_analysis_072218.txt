@@ -1,0 +1,20 @@
+Error: number of observations (=22) <= number of random effects (=28) for term (1 + time | subject); the random-effects parameters and the residual variance (or scale parameter) are probably unidentifiable
+[1] "model.reduced"
+Error in summary(model.reduced) : object 'model.reduced' not found
+Error: number of observations (=22) <= number of random effects (=28) for term (1 + time | subject); the random-effects parameters and the residual variance (or scale parameter) are probably unidentifiable
+[1] "model.full"
+Error in summary(model.full) : object 'model.full' not found
+[1] "###### ANOVA ######"
+Error in anova(model.full, model.reduced) : object 'model.full' not found
+Error in print(model_anova) : object 'model_anova' not found
+Error: number of observations (=22) <= number of random effects (=28) for term (1 + time | subject); the random-effects parameters and the residual variance (or scale parameter) are probably unidentifiable
+[1] "model.reduced"
+Error in summary(model.reduced) : object 'model.reduced' not found
+Error: number of observations (=22) <= number of random effects (=28) for term (1 + time | subject); the random-effects parameters and the residual variance (or scale parameter) are probably unidentifiable
+[1] "model.full"
+Error in summary(model.full) : object 'model.full' not found
+[1] "###### ANOVA ######"
+Error in anova(model.full, model.reduced) : object 'model.full' not found
+Error in print(model_anova) : object 'model_anova' not found
+Error in def.off() : could not find function "def.off"
+Error in close.() : could not find function "close."

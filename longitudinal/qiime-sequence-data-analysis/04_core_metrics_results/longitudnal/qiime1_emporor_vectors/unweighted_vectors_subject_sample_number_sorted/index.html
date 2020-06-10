@@ -1,0 +1,465 @@
+<!--
+*Summary of Emperor's Information*
+Command executed on October 25, 2017 at 14:07:54
+Emperor Version: 0.9.51
+QIIME Version: 0.9.51
+HostName: Jennifer
+Metadata: /Volumes/JEN_DATA/autism_project/microbial_analysis/03_mapping/mapping_longitudnal_only_longitudnal.txt
+Coordinates: /Volumes/JEN_DATA/autism_project/microbial_analysis/09_core_metrics_results/qiime1_emporor_vectors/pcoa_exports/unweighted_ordination_pcoa.txt
+Command: /Users/jenniferfouquier/miniconda3/envs/qiime1/bin/make_emperor.py -i ../qiime1_emporor_vectors/pcoa_exports/unweighted_ordination_pcoa.txt -m ../../03_mapping/mapping_longitudnal_only_longitudnal.txt --add_vectors Subject,Sample_Number -o unweighted_vectors_subject_sample_number_sorted --ignore_missing_samples -a Sample_Number
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Emperor</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="emperor_required_resources/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!-- Style files -->
+    <link rel="stylesheet" type="text/css" href="emperor_required_resources/emperor/css/emperor.css">
+    <link rel="stylesheet" type="text/css" href="emperor_required_resources/css/jquery-ui2.css">
+    <link rel="stylesheet" type="text/css" href="emperor_required_resources/css/colorPicker.css">
+    <link rel="stylesheet" type="text/css" href="emperor_required_resources/css/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="emperor_required_resources/css/d3.parcoords.css">
+    <link rel="stylesheet" type="text/css" href="emperor_required_resources/css/chosen.min.css">
+
+    <!-- Emperor logo for the splash window -->
+    <table id="logotable" style="vertical-align:middle;text-align:center;height:100%;width:100%;margin:0;padding:0;border:0;">
+        <tr><td><img src="emperor_required_resources/img/emperor.png" alt="Emperor" id="logo"/></td></tr>
+    </table>
+
+    <!-- JavaScript code -->
+
+    <!-- jQuery and other plugins -->
+    <script type="text/javascript" src="emperor_required_resources/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/jquery.colorPicker.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/spectrum.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/chosen.jquery.min.js"></script>
+
+    <!-- D3.js for the parallel coordinates plugin -->
+    <script type="text/javascript" src="emperor_required_resources/js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/d3.parcoords.js"></script>
+
+    <!-- THREE.js and plugins for screenshots -->
+    <script type="text/javascript" src="emperor_required_resources/js/three.min.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/js/Detector.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/js/OrbitControls.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/js/ColorConverter.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/js/SVGRenderer.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/THREEx.screenshot.js"></script>
+
+    <!-- General utilities (underscore.js and FileSaver.js) -->
+    <script type="text/javascript" src="emperor_required_resources/js/underscore-min.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/chroma.min.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/js/FileSaver.min.js"></script>
+
+    <!-- Emperor library code -->
+    <script type="text/javascript" src="emperor_required_resources/emperor/js/animate.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/emperor/js/draw.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/emperor/js/emperor.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/emperor/js/trajectory.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/emperor/js/ui.js"></script>
+    <script type="text/javascript" src="emperor_required_resources/emperor/js/util.js"></script>
+
+    <script type="text/javascript">
+
+var g_mappingFileHeaders = ['SampleID','BarcodeSequence','LinkerPrimerSequence','Run','Subject','Sample_Number','Location_of_DNA_Extraction','ASD','ASD_Numeric','ASD_Sibling','Irritabilty','Lethargy','Stereotypy','Hyperactivity','Inapp_Speech','Gender','Age_In_Years','GI_Symptoms','Abdominal_Pain','Bloating','Loose_Stool','Constipation','Sample_Symptoms','CollectionDate','Location','Where_Moved_From','Time_From_First_Sample_Months','Special_Diets','Diet_Questionnaire_Date','WEIGHT','HEIGHTFEET','HEIGHTINCHES','BLACKAFRICAN','WHITE','HISPANIC','ASIAN','NATIVEINDIAN','OTHERETHNICITY','VITAMINREGULARUSE','VITAMINPILLDAYSAMOUNT','CHOCMILKFREQ','CHOCMILKQUAN','REDUCEDFATMILKFREQ','REDUCEDFATMILKQUAN','TYPEOFMILK','SOFTDRINKSFREQ','SOFTDRINKSQUAN','SODAAMOUNT','SLURPEEFREQ','HAWAIIANPUNCHFREQ','HAWAIIANPUNCHQUAN','HICFREQ','HICQUAN','ORANGEJUICEFREQ','ORANGEJUICEQUAN','OTHERJUICEFREQ','OTHERJUICEQUAN','BANANASFREQ','BANANASQUAN','APPLESPEARSFREQ','APPLESPEARSQUAN','ORANGESFREQ','ORANGESQUAN','STRAWBERRYFREQ','STRAWBERRYQUAN','CANNEDFRUITFREQ','CANNEDFRUITQUAN','OTHERFRUITFREQ','OTHERFRUITQUAN','PANCAKEFREQ','PANCAKEQUAN','BARSFREQ','BARSQUAN','EGGSFREQ','EGGSQUAN','BACONFREQ','COOKEDCEREALFREQ','COOKEDCEREALQUAN','COLDCEREALFREQ','COLDCEREALQUAN','COLDCEREALCODE','MILKONCEREALFREQ','GREENSALADFREQ','GREENSALADQUAN','SALADDRESSINGFREQ','BEANSPEASFREQ','BEANSPEASQUAN','PINTOBEANSFREQ','PINTOBEANSQUAN','REFRIEDBEANSFREQ','REFRIEDBEANSQUAN','CORNFREQ','CORNQUAN','TOMATOESFREQ','TOMATOESQUAN','GREENSFREQ','GREENSQUAN','BROCCOLIFREQ','BROCCOLIQUAN','CARROTSFREQ','CARROTSQUAN','SWEETPOTATOESFREQ','SWEETPOTATOESQUAN','FRIESFREQ','FRIESQUAN','WHITEPOTATOESFREQ','WHITEPOTATOESQUAN','OTHERVEGGIESFREQ','OTHERVEGGIESQUAN','RICEFREQ','RICEQUAN','SALSAFREQ','SPAGHETTIFREQ','SPAGHETTIQUAN','CHEESEDISHFREQ','CHEESEDISHQUAN','PIZZAFREQ','PIZZAQUAN','BURGERFREQ','BURGERQUAN','BURGERTYPE','TACOSFREQ','TACOSQUAN','TACOTYPE','HOTPOCKETFREQ','BEEFFREQ','BEEFQUAN','HAMBURGERHELPERFREQ','HAMBURGERHELPERQUAN','PORKFREQ','PORKQUAN','FRIEDCHICKENFREQ','FRIEDCHICKENQUAN','NOTFRIEDCHICKENFREQ','NOTFRIEDCHICKENQUAN','ANYFISHFREQ','ANYFISHQUAN','HOTDOGFREQ','HOTDOGQUAN','HAMFREQ','HAMQUAN','VEGGIESOUPFREQ','VEGGIESOUPQUAN','OTHERSOUPFREQ','OTHERSOUPQUAN','SALTYSNACKSFREQ','SALTYSNACKSQUAN','CRACKERSFREQ','CRACKERSQUAN','NACHOSFREQ','NACHOSQUAN','ICECREAMFREQ','ICECREAMQUAN','COOKIESFREQ','COOKIESQUAN','DOUGHNUTSFREQ','DOUGHNUTSQUAN','CAKEFREQ','CAKEQUAN','PIEFREQ','PIEQUAN','CHOCOLATECANDYFREQ','CHOCOLATECANDYQUAN','CANDYFREQ','CANDYQUAN','BISCUITSFREQ','BISCUITSQUAN','WHOLEWHEATBREADFREQ','WHOLEWHEATBREADQUAN','WHITEBREADFREQ','WHITEBREADQUAN','TORTILLASFREQ','TORTILLASQUAN','MARGARINEFREQ','MARGARINEQUAN','CHEESEFREQ','CHEESEQUAN','MAYOFREQ','PEANUTBUTTERFREQ','PEANUTBUTTERQUAN','JELLYFREQ','NUTSFREQ','NUTSQUAN'];
+var g_mappingFileData = { 'stool.control.38C.1.ASU': ['stool.control.38C.1.ASU','CCAATACGCCTG','CCGGACTACHVGGGTWTCTAAT','2','38','1','ASU','No','0','No','missing','missing','missing','missing','missing','Male','4','No','No','No','No','No','blank','missing','CO','NA','0','supplements','3/4/14','30','3','4','0','1','0','0','0','0','2','3','3','2','5','1','3','1','2','blank','1','1','2','1','2','2','1','2','1','2','2','2','1','4','2','3','1','1','2','4','3','1','2','5','2','3','2','3','1','2','4','2','C15','4','1','2','2','1','2','1','2','1','2','1','2','1','2','1','2','4','2','4','2','1','2','2','1','1','2','1','2','1','2','3','2','2','2','2','4','2','1','2','blank','2','1','3','1','2','2','2','1','1','2','1','2','4','1','1','2','2','2','1','2','1','2','1','2','2','1','4','1','1','2','3','2','3','1','1','2','2','2','1','2','3','2','3','2','2','1','3','1','3','1','2','1','3','1','2','1','1','2','1','2','3','1'],'stool.control.15S.2': ['stool.control.15S.2','GAGCCATCTGTA','CCGGACTACHVGGGTWTCTAAT','1','15','2','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Female','6','Yes','less_than 1/month','less_than 1/month','less_than 1/month','1-2/week','Constipation','11/7/13','CO','CO','2.83','supplements','11/7/13','blank','3','11','0','1','0','0','0','0','2','3','4','2','1','2','5','4','1','1','1','2','1','1','2','1','2','2','1','1','2','1','2','1','2','1','2','2','2','2','1','2','2','3','2','1','2','1','1','2','2','3','C44','1','1','2','1','2','1','1','2','2','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','1','blank','2','2','2','2','2','2','1','2','1','2','3','1','2','3','1','2','1','1','2','3','1','1','2','2','1','1','2','1','2','1','2','1','2','3','3','3','3','2','2','2','2','1','2','1','2','1','2','1','2','1','2','6','2','6','3','2','3','2','1','1','2','1','2','1','2','1','2','1','1','2','1','2','1'],'stool.control.15S.3': ['stool.control.15S.3','CTCACAACCGTG','CCGGACTACHVGGGTWTCTAAT','1','15','3','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Female','6','Yes','less_than 1/month','less_than 1/month','1-2/week','1-2/week','Abdominal_pain/gas','5/2/14','CO','CO','8.63','melatonin/vitamins/fiber_gummis','5/2/14','blank','blank','blank','1','1','0','0','1','0','blank','blank','1','2','6','3','5','1','2','1','1','1','2','2','1','1','2','4','1','3','2','2','2','1','2','1','2','3','2','1','2','1','2','3','3','1','2','2','1','2','5','2','C15','5','1','2','1','1','2','1','2','1','2','2','1','2','1','2','1','2','1','3','1','1','2','3','1','2','1','3','1','1','2','2','1','2','1','2','3','3','1','2','3','2','2','3','2','2','1','1','2','2','1','1','2','2','1','1','2','1','2','2','2','1','2','4','3','6','2','2','2','1','2','2','2','1','2','1','2','3','2','1','2','2','1','2','2','2','3','4','1','1','2','2','1','2','1','4','2','1','1','2','2','1','2'],'stool.control.15S.1': ['stool.control.15S.1','TAATACGGATCG','CCGGACTACHVGGGTWTCTAAT','1','15','1','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Female','6','Yes','less_than 1/month','less_than 1/month','less_than 1/month','1-2/week','blank','8/13/13','CO','CO','0','omega_3/metatonin','8/9/13','50','blank','blank','1','1','0','0','1','0','1','blank','1','2','4','2','4','2','1','1','1','3','2','2','1','1','2','3','1','1','2','2','1','3','3','1','2','1','2','3','1','1','2','2','2','3','3','3','4','2','3','2','C50','3','1','2','1','1','2','1','2','1','2','3','1','1','2','1','2','2','1','2','1','1','2','2','1','2','1','2','1','1','2','2','1','2','2','2','2','2','1','2','3','1','2','3','1','2','1','1','2','2','1','2','1','2','1','1','2','2','1','1','2','1','2','1','2','4','2','3','2','2','2','1','2','3','3','1','2','1','2','1','2','3','2','2','1','3','3','1','2','1','2','1','2','1','2','3','2','1','1','2','1','2','1'],'stool.control.15S.4': ['stool.control.15S.4','TTGGGTACACGT','CCGGACTACHVGGGTWTCTAAT','2','15','4','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Female','7','No','No','No','No','No','blank','missing','CO','blank','missing','none','10/27/14','54','4','2','0','1','0','0','1','0','1','blank','2','1','4','2','5','1','2','1','2','1','2','1','2','3','1','3','1','1','2','2','2','1','2','1','2','2','2','2','1','3','3','1','2','1','2','4','1','2','4','2','C50','4','2','2','2','1','2','1','2','1','2','1','2','2','1','1','2','1','2','1','2','1','2','2','2','2','1','1','2','1','2','3','2','2','1','2','3','2','1','2','3','1','2','3','1','1','2','1','2','1','2','3','2','2','1','1','2','2','2','1','2','1','2','4','3','2','1','2','1','3','1','1','2','1','2','1','2','1','2','1','2','3','1','1','2','1','2','1','2','3','1','1','2','3','1','2','1','1','1','2','1','1','2'],'stool.control.28S.2': ['stool.control.28S.2','GTAGATCGTGTA','CCGGACTACHVGGGTWTCTAAT','1','28','1','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Female','3','Yes','less_than 1/month','less_than 1/month','1-2/month','less_than 1/month','blank','7/16/14','CO','CO','missing','None','7/14/14','blank','blank','blank','0','0','0','0','0','0','1','blank','1','2','6','3','2','1','2','blank','1','1','2','1','2','1','2','4','1','1','2','3','1','2','1','6','1','1','2','4','1','1','1','2','1','2','1','3','1','2','1','2','blank','1','1','2','1','1','2','4','1','4','1','1','2','1','2','1','2','2','1','1','2','1','2','2','1','1','2','1','2','4','1','2','1','2','3','1','3','1','1','2','blank','2','1','3','1','1','2','1','2','1','2','1','2','3','1','2','1','1','2','4','1','1','2','1','2','5','1','5','1','1','2','4','2','3','1','1','2','3','1','2','1','1','2','5','1','4','1','4','1','1','2','2','1','5','1','6','2','1','1','2','1','6','1'],'stool.ASD.6.4': ['stool.ASD.6.4','ACTTCCAACTTC','CCGGACTACHVGGGTWTCTAAT','2','6','3','UCDenver','Yes','1','NA','7','17','9','25','8','Male','8','Yes','greater_than 3/week','1-2/week','1-2/week','1-2/week','blank','missing','CO','NA','missing','gf/probio/magnesium_citrate_supplements/vitamins','3/31/15','52','4','1','0','1','0','1','0','0','1','blank','1','2','1','2','7','1','2','blank','1','1','2','1','2','1','2','2','1','5','1','6','3','4','2','1','2','3','2','3','3','4','3','1','2','6','2','2','1','2','1','2','blank','2','5','2','1','5','2','3','1','3','2','1','2','2','2','5','1','2','1','6','2','1','2','3','1','3','2','4','2','3','2','1','1','2','2','1','1','2','2','1','3','1','2','blank','1','1','2','2','1','1','2','4','2','4','1','2','1','1','2','1','2','2','3','1','2','3','1','3','2','1','2','1','2','1','2','1','2','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','1','1','2','1','3','2','1','3','1'],'stool.control.13S.2': ['stool.control.13S.2','CCAATACGCCTG','CCGGACTACHVGGGTWTCTAAT','1','13','2','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Male','6','No','No','No','No','No','blank','9/15/14','CO','M','12.6','supplements','9/15/14','blank','3','10','0','1','1','0','0','0','2','2','1','2','6','3','2','3','1','1','1','3','1','1','2','1','2','3','1','1','2','4','2','1','2','3','1','2','2','3','1','3','3','4','2','1','2','1','1','2','3','2','C15','1','2','2','2','1','2','2','1','1','2','2','2','1','2','1','2','3','1','4','1','1','2','1','2','1','2','1','2','1','2','1','1','2','3','2','3','3','3','2','1','2','2','blank','1','1','2','1','2','2','2','3','2','2','2','2','1','2','2','3','2','1','2','2','2','4','1','2','1','1','2','3','2','2','1','1','2','1','2','1','2','1','2','3','2','1','2','5','2','3','1','2','2','1','2','3','2','3','4','3','1','1','2'],'stool.ASD.7.1': ['stool.ASD.7.1','GGCCAGTTCCTA','CCGGACTACHVGGGTWTCTAAT','1','7','1','UCDenver','Yes','1','NA','10','1','2','5','4','Male','11','Yes','1-2/month','3-4/month','less_than 1/month','1-2/week','Constipation','8/6/13','CO','CO','0','vitamin/iron_supplements','8/6/13','102','4','9','0','1','0','0','0','0','2','4','6','3','3','2','2','3','1','1','1','1','2','1','2','1','2','6','1','1','2','1','2','1','2','1','2','5','2','1','2','2','2','1','2','4','2','2','1','2','1','2','blank','1','2','3','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','2','1','2','1','2','1','2','2','2','2','2','3','4','3','2','2','1','1','2','blank','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','3','1','2','1','2','5','2','1','2','1','2','1','2','1','2','2','1','1','2','3','2','1','2','1','2','1','2','1','2','6','3','2','1','2','1','6','2','1','5','2','5','1','2'],'stool.ASD.7.3': ['stool.ASD.7.3','ATTCTGCCGAAG','CCGGACTACHVGGGTWTCTAAT','1','7','3','UCDenver','Yes','1','NA','0','2','0','4','1','Male','11','Yes','1-2/week','1-2/week','1-2/week','1-2/week','None','4/29/14','CO','CO','8.77','cf/iron_supplements/vitamins','4/29/14','101','4','11','0','1','0','0','0','0','2','4','6','3','1','2','2','3','1','1','1','2','1','1','2','1','2','2','1','1','2','1','2','1','2','1','2','6','2','1','2','1','2','1','2','4','2','2','1','2','1','2','blank','1','2','3','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','3','2','1','2','1','2','1','2','3','2','2','1','2','3','3','3','2','1','1','2','blank','1','1','2','1','2','1','2','1','2','2','3','1','2','1','2','1','2','1','2','1','2','6','2','6','2','1','2','2','2','1','2','1','2','1','2','2','2','1','2','1','2','1','2','1','2','6','3','2','1','1','2','4','2','1','5','2','5','1','2'],'stool.ASD.7.2': ['stool.ASD.7.2','GTGGAGTCTCAT','CCGGACTACHVGGGTWTCTAAT','1','7','2','UCDenver','Yes','1','NA','4','1','0','1','2','Male','11','Yes','1-2/month','3-4/month','1-2/month','1-2/week','blank','11/5/13','CO','CO','2.97','vitamin/iron_supplements','11/5/13','108','4','10','0','1','0','0','0','0','2','4','3','2','1','2','6','2','1','1','1','1','2','1','2','1','2','4','1','2','2','1','2','1','2','1','2','6','2','1','2','1','2','1','2','4','2','2','1','2','1','2','blank','1','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','2','1','2','1','2','1','2','1','1','2','3','3','3','3','2','2','1','1','2','blank','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','3','3','1','2','1','2','blank','2','blank','3','1','2','1','2','1','2','1','2','1','2','2','2','1','2','6','1','1','2','6','3','3','2','2','1','3','1','4','2','2','4','2','4','1','2'],'stool.ASD.6.1': ['stool.ASD.6.1','TCCCTTGTCTCC','CCGGACTACHVGGGTWTCTAAT','1','6','1','UCDenver','Yes','1','NA','missing','missing','missing','missing','missing','Male','7','missing','missing','missing','missing','missing','missing','7/22/13','CO','missing','0','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing'],'stool.ASD.6.2': ['stool.ASD.6.2','CGTAAGATGCCT','CCGGACTACHVGGGTWTCTAAT','1','6','2','UCDenver','Yes','1','NA','3','6','8','20','3','Male','7','Yes','missing','missing','3-4/month','less_than 1/month','Abdominal_pain/excess gas','6/12/14','CO','NA','10.7','gf/probio/Magnesium_sulfate_citrate_supplements','6/12/14','50','4','blank','0','1','0','0','0','0','1','blank','1','2','4','1','2','1','2','blank','1','1','2','1','2','blank','2','3','1','5','1','4','3','1','2','4','2','1','2','4','3','2','2','1','2','3','2','1','1','2','1','2','blank','1','4','2','1','4','1','1','2','4','2','1','2','3','3','3','2','2','1','4','2','1','2','3','1','2','1','3','2','1','2','1','2','1','blank','2','3','3','1','2','blank','1','2','blank','1','1','2','1','2','1','2','1','2','2','1','1','2','1','2','1','2','1','2','1','2','2','1','1','2','1','2','1','2','4','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','3','1','1','4','2','1','3','1'],'stool.ASD.22.3': ['stool.ASD.22.3','ACGAGACTGATT','CCGGACTACHVGGGTWTCTAAT','1','22','3','UCDenver','Yes','1','NA','20','12','3','19','4','Male','4','No','No','No','No','No','blank','6/4/14','CO','CO','9.43','probio/supplements/gf/cf/vitamins/DOTERRA_oils','blank','47','blank','blank','0','1','1','0','0','0','2','2','1','2','1','2','2','2','1','1','1','2','1','1','2','1','2','1','2','1','2','4','2','1','2','4','3','6','2','4','2','1','2','1','2','4','2','1','1','2','3','2','blank','1','1','2','1','1','2','1','2','1','2','3','2','1','2','3','1','1','2','3','2','1','2','2','1','3','1','1','2','5','2','1','3','2','1','2','3','2','1','2','blank','1','2','blank','1','2','1','1','2','1','2','3','1','1','2','1','2','1','2','1','2','1','2','1','2','3','2','3','1','1','1','2','2','2','2','1','2','2','1','1','2','1','2','3','2','1','2','1','2','1','2','1','2','1','2','1','2','1','1','2','1','1','2'],'stool.ASD.22.2': ['stool.ASD.22.2','GCGATATATCGC','CCGGACTACHVGGGTWTCTAAT','1','22','2','UCDenver','Yes','1','NA','16','7','4','13','4','Male','4','No','No','No','No','No','blank','2/11/14','CO','CO','3.67','probio/supplements','2/11/14','45','3','blank','0','1','1','0','0','0','2','4','1','2','blank','2','2','3','2','1','1','2','1','1','2','1','2','2','1','1','2','4','3','2','1','3','2','6','2','2','1','2','2','1','2','2','3','1','1','2','2','2','C50','1','1','2','1','1','2','1','2','1','2','2','1','1','2','1','2','1','2','2','1','1','2','4','2','1','2','1','2','1','2','1','2','1','1','2','2','2','1','2','blank','1','2','blank','1','1','2','1','2','1','2','1','2','1','2','blank','1','1','2','1','2','1','2','5','3','4','2','2','1','1','2','2','2','2','2','1','2','1','2','1','2','2','2','2','2','1','2','1','2','1','2','1','2','1','2','1','2','1','3','2','1','1','2'],'stool.ASD.22.1': ['stool.ASD.22.1','GCGTTCTAGCTG','CCGGACTACHVGGGTWTCTAAT','1','22','1','UCDenver','Yes','1','NA','16','13','4','17','3','Male','4','Yes','less_than 1/month','less_than 1/month','3-4/month','less_than 1/month','Diarrhea','10/22/13','CO','CO','0','gf/cf/probio/vitamins/natural drops/teas','10/16/13','42','blank','blank','0','1','1','0','0','0','2','4','1','2','1','2','6','3','2','1','4','3','2','1','2','1','2','4','3','1','2','2','2','1','2','2','2','2','2','2','1','1','2','1','2','1','2','1','1','2','1','2','blank','1','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','1','1','2','1','2','1','2','1','1','2','1','2','2','2','1','2','blank','1','2','blank','1','1','2','1','2','1','2','4','2','1','2','1','2','1','2','1','2','1','2','4','3','3','2','2','1','1','2','2','2','2','1','2','2','2','1','1','2','1','2','3','2','1','2','1','2','2','2','1','2','3','2','1','2','1','1','2','1','1','2'],'stool.ASD.27.1': ['stool.ASD.27.1','GTTGTTCTGGGA','CCGGACTACHVGGGTWTCTAAT','1','27','1','UCDenver','Yes','1','NA','missing','missing','missing','missing','missing','Male','4','Yes','1-2/month','1-2/month','3-4/month','less_than 1/month','None','10/29/13','CO','blank','0','Broccoli_sprout_powder/Enduracell/vitamins/gf','10/29/13','44','3','6','0','1','0','0','0','0','2','2','1','2','6','3','2','1','2','blank','1','1','2','1','2','1','2','1','2','3','1','2','1','1','2','1','2','1','2','2','1','5','2','1','2','2','1','4','1','2','3','2','C15','6','3','2','1','1','2','5','1','4','1','3','1','2','1','2','1','2','1','3','2','2','2','1','2','1','2','3','1','4','1','4','2','1','1','2','2','1','1','2','blank','4','2','1','1','1','2','1','2','2','1','1','2','2','1','2','1','1','2','1','2','1','2','1','2','3','1','4','1','1','2','2','2','3','2','1','2','2','1','1','2','5','1','6','1','2','1','1','2','1','2','5','1','3','1','blank','2','1','2','1','1','4','1'],'stool.ASD.27.4': ['stool.ASD.27.4','AGATTGACCAAC','CCGGACTACHVGGGTWTCTAAT','2','27','3','UCDenver','Yes','1','NA','23','10','5','25','9','Male','6','Yes','1-2/month','3-4/month','3-4/month','3-4/month','Constipation','missing','CO','CO','missing','probio/supplements','11/20/14','50','3','10','0','1','0','0','0','0','2','2','1','2','6','3','2','1','2','blank','1','1','2','1','2','1','2','1','2','2','1','3','2','1','2','1','2','1','2','3','1','5','1','1','2','1','2','4','1','2','4','2','C50','1','4','2','1','1','2','2','1','2','1','2','1','1','2','2','1','4','1','4','1','1','2','1','2','1','2','3','1','4','1','5','1','2','3','1','3','1','1','2','blank','3','1','3','1','1','2','1','2','2','1','1','2','3','1','1','2','1','2','4','1','1','2','1','2','3','1','2','1','1','2','2','2','3','1','2','1','4','1','1','2','6','1','6','1','3','2','2','1','4','1','2','1','1','2','4','1','1','1','2','1','4','1'],'stool.ASD.7.4': ['stool.ASD.7.4','ATGTCACCGCTG','CCGGACTACHVGGGTWTCTAAT','1','7','4','UCDenver','Yes','1','NA','2','6','0','1','2','Male','12','Yes','less_than 1/month','less_than 1/month','less_than 1/month','3-4/month','blank','missing','CO','CO','missing','vitamin/iron_supplements','8/19/14','94','5','0','0','1','0','0','0','0','2','4','5','2','1','2','6','4','1','2','1','2','1','1','2','1','2','4','1','2','2','1','2','1','2','1','2','3','2','1','2','1','2','1','2','4','2','1','1','2','1','2','blank','1','2','3','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','3','3','1','2','1','2','1','2','3','1','2','2','2','3','3','3','2','1','1','2','blank','1','1','2','1','2','1','2','1','2','1','2','2','1','1','2','2','3','1','2','1','2','6','2','6','2','1','2','3','2','1','2','1','2','1','2','2','2','1','2','1','2','1','2','1','2','6','3','1','2','1','2','4','2','2','5','2','5','1','2'],'stool.control.13S.1B': ['stool.control.13S.1B','GTGGTGGTTTCC','CCGGACTACHVGGGTWTCTAAT','1','13','1','UCDenver','No','0','Yes','3','1','0','4','0','Male','5','No','No','No','No','No','blank','8/29/13','CO','M','0','vitamins','8/29/13','blank','3','6','0','1','1','0','0','0','2','2','1','2','4','2','2','2','1','1','1','1','2','1','2','1','2','3','2','1','2','2','1','2','1','1','2','3','2','3','2','3','3','4','3','1','2','1','2','2','2','2','C15','2','blank','2','blank','blank','2','blank','2','blank','2','1','2','1','2','1','2','1','2','4','1','1','2','3','2','1','2','2','1','2','2','3','blank','2','blank','2','blank','2','4','2','1','1','2','3','1','1','2','1','2','2','2','3','1','3','1','blank','2','blank','2','blank','2','blank','2','blank','2','3','1','3','1','1','2','4','2','1','2','1','2','1','2','1','2','2','1','1','2','blank','2','blank','2','blank','2','blank','2','blank','2','blank','2','blank','blank','2','blank','blank','2'],'stool.ASD.14.1': ['stool.ASD.14.1','GCATATGCACTG','CCGGACTACHVGGGTWTCTAAT','1','14','1','UCDenver','Yes','1','NA','4','6','1','11','4','Male','9','Yes','less_than 1/month','less_than 1/month','3-4/month','3-4/month','blank','8/13/13','CO','CO','0','omega_3/metatonin','8/9/13','90','4','9','1','1','0','0','1','0','1','blank','1','2','3','2','6','2','1','1','1','3','2','2','2','1','2','4','1','1','2','3','2','3','3','1','2','1','2','3','1','5','3','1','2','1','2','4','1','2','1','2','blank','1','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','2','3','1','2','1','2','1','2','4','1','2','1','2','5','3','4','3','1','1','2','3','1','1','2','1','2','1','2','1','2','1','2','1','2','3','3','1','2','1','2','1','2','6','3','3','2','1','2','1','2','3','2','1','2','1','2','1','2','1','2','3','3','3','3','4','2','1','2','1','2','1','2','1','2','1','4','2','1','2','1'],'stool.ASD.14.2': ['stool.ASD.14.2','TGCATACACTGG','CCGGACTACHVGGGTWTCTAAT','1','14','2','UCDenver','Yes','1','NA','7','2','0','13','6','Male','9','Yes','less_than 1/month','less_than 1/month','3-4/month','less_than 1/month','blank','12/13/13','CO','CO','4','vitamins/melatonin','12/13/13','95','4','6','1','1','0','0','1','0','2','2','2','2','3','2','6','1','2','blank','1','1','2','1','2','1','2','4','1','1','2','2','2','2','2','1','2','1','2','1','2','3','3','1','2','1','2','1','1','2','1','2','blank','1','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','blank','2','1','2','1','2','1','2','1','2','1','2','1','2','3','1','2','1','2','6','3','1','2','1','1','2','3','1','1','2','1','2','1','2','1','2','1','2','2','2','1','2','1','2','1','2','1','2','4','2','4','2','1','2','1','2','2','3','1','2','1','2','1','2','1','2','1','2','1','2','4','2','1','2','1','2','1','2','1','2','1','4','2','1','1','2'],'stool.ASD.14.3': ['stool.ASD.14.3','CAAATTCGGGAT','CCGGACTACHVGGGTWTCTAAT','1','14','3','UCDenver','Yes','1','NA','2','5','4','11','8','Male','10','unsure','unsure','unsure','unsure','unsure','Diarrhea/gas','5/20/14','CO','CO','9.23','vitamins/melatonin','5/20/14','100','4','5','1','1','0','0','1','0','1','blank','1','2','1','2','5','2','1','1','1','2','3','1','2','1','2','4','1','3','2','2','2','1','2','1','2','1','2','1','2','2','3','1','2','1','2','1','1','2','1','2','blank','1','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','4','2','1','2','1','2','1','2','3','1','2','1','2','4','3','3','2','1','2','3','3','1','1','2','1','2','1','2','1','2','1','2','2','2','3','3','1','2','1','2','1','2','3','3','4','2','1','2','4','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','5','2','1','2','1','2','1','2','3','2','1','5','2','1','1','2'],'stool.ASD.14.4': ['stool.ASD.14.4','CATTATGGCGTG','CCGGACTACHVGGGTWTCTAAT','2','14','4','UCDenver','Yes','1','NA','missing','missing','missing','missing','missing','Male','missing','missing','missing','missing','missing','missing','missing','missing','CO','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing','missing'],'stool.control.28S.3': ['stool.control.28S.3','CTGCTATTCCTC','CCGGACTACHVGGGTWTCTAAT','2','28','2','UCDenver','No','0','Yes','missing','missing','missing','missing','missing','Female','3','Yes','less_than 1/month','1-2/month','less_than 1/month','less_than 1/month','blank','missing','CO','CO','missing','None','11/17/14','33','3','2','0','1','0','0','0','0','1','blank','1','2','6','2','2','1','2','blank','1','1','2','1','2','2','1','2','1','2','1','5','1','4','1','5','1','1','2','4','1','2','1','1','2','1','2','3','1','2','5','2','C50','2','4','2','4','1','2','1','2','1','2','1','2','2','1','2','1','1','2','3','1','1','2','1','2','1','2','2','1','1','2','2','1','2','4','1','2','1','1','2','blank','1','2','blank','1','1','2','1','2','2','1','1','2','2','1','1','2','1','2','4','1','1','2','1','2','3','1','6','1','1','2','2','2','3','1','3','1','3','1','2','1','4','1','5','1','4','1','4','1','2','1','1','2','4','1','6','3','1','1','2','1','6','1'],'stool.ASD.24.1': ['stool.ASD.24.1','AACTAGTTCAGG','CCGGACTACHVGGGTWTCTAAT','1','24','1','UCDenver','Yes','1','NA','27','11','5','38','9','Male','5','No','No','No','No','No','blank','10/25/13','CO','Florida','0','supplements','10/25/13','blank','3','3','0','0','0','0','0','1','2','3','5','1','1','2','7','1','2','blank','1','1','2','1','2','3','1','5','2','4','2','4','2','4','3','6','2','1','2','4','2','3','2','4','2','1','2','5','1','2','6','2','blank','1','1','2','1','1','2','1','2','1','2','2','2','1','2','1','2','1','2','5','2','1','2','3','2','1','2','1','2','1','2','3','3','2','1','2','2','1','1','2','blank','1','2','blank','1','1','2','1','2','1','2','2','1','3','1','1','2','1','2','1','2','1','2','1','2','5','2','6','2','1','2','2','2','3','2','2','2','1','2','1','2','1','2','blank','2','1','2','5','1','1','2','1','2','5','1','5','1','1','1','2','2','6','2'],'stool.ASD.12.2': ['stool.ASD.12.2','AGCGGAGGTTAG','CCGGACTACHVGGGTWTCTAAT','1','12','2','UCDenver','Yes','1','NA','34','15','5','37','2','Male','9','Yes','less_than 1/month','less_than 1/month','less_than 1/month','3-4/month','None','9/8/14','CO','NA','13','probio/vitamin/supplements/cf/dye_free','9/15/14','blank','4','1','0','1','0','1','0','0','2','3','1','2','1','2','6','3','1','1','3','1','2','2','1','4','1','3','1','3','2','3','2','1','2','2','2','4','2','3','2','1','2','1','2','1','2','1','1','2','2','2','C15','blank','3','2','1','1','2','1','2','1','2','3','2','1','2','1','2','4','2','3','1','1','2','2','2','1','2','4','1','1','2','3','2','2','1','2','2','2','3','2','3','2','2','3','1','1','2','1','2','3','2','3','2','2','1','3','2','2','2','3','3','1','2','1','2','2','2','1','2','1','2','1','2','1','2','1','2','1','2','2','2','3','1','2','2','1','2','1','2','5','2','1','2','1','2','1','2','3','4','2','4','1','2'],'stool.control.39C.2': ['stool.control.39C.2','CACTACGCTAGA','CCGGACTACHVGGGTWTCTAAT','1','39','2','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','6','No','No','No','No','No','blank','6/11/14','CO','NA','3.5','None','6/11/14','52','3','8','0','1','0','0','0','0','2','2','1','2','6','2','3','1','2','blank','4','3','1','1','2','3','1','3','1','4','1','2','1','1','2','5','2','3','2','5','2','2','2','4','2','2','3','2','3','3','5','3','C15','5','2','2','2','3','1','1','2','1','2','2','2','1','2','2','1','1','2','5','1','1','2','1','2','1','2','2','1','1','2','2','1','2','2','1','1','2','2','2','1','2','3','3','1','2','1','1','2','2','1','1','2','4','1','1','2','3','3','3','2','1','2','1','2','3','1','4','1','1','2','4','2','3','1','1','2','1','2','1','2','1','2','2','1','2','1','4','1','3','1','2','1','2','1','3','1','1','3','2','3','3','1'],'stool.ASD.12.1': ['stool.ASD.12.1','TGTCGCAAATAG','CCGGACTACHVGGGTWTCTAAT','1','12','1','UCDenver','Yes','1','NA','24','16','4','30','2','Male','8','unsure','unsure','unsure','unsure','unsure','None','8/7/13','CO','NA','0','probio/vitamin/supplements/cf/fish_oil','8/10/13','52.5','4','0','0','0','0','1','0','0','2','3','1','2','4','2','6','2','1','1','4','1','2','1','2','4','1','4','2','4','3','3','2','1','2','5','3','4','2','4','3','1','2','1','2','3','3','1','1','2','3','2','C15','1','4','2','4','3','2','2','2','1','2','3','2','3','2','2','1','3','2','4','1','1','2','3','2','1','2','4','1','1','2','1','2','3','1','2','1','2','3','2','3','2','3','3','1','2','1','1','2','3','3','4','2','3','2','3','2','2','2','3','3','1','2','1','2','2','2','3','2','1','2','3','2','1','2','1','2','3','2','1','2','1','2','1','2','1','2','1','2','5','2','1','2','1','2','1','2','3','1','2','1','1','2'],'stool.control.38C.2B': ['stool.control.38C.2B','GAATACCAAGTC','CCGGACTACHVGGGTWTCTAAT','1','38','2','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','5','No','No','No','No','No','blank','6/9/14','CO','NA','3.17','None','6/9/14','32','3','2','0','1','0','0','0','0','2','2','1','2','5','1','3','1','2','blank','2','3','1','1','2','2','1','4','1','3','1','2','1','1','2','5','2','3','2','5','1','1','2','5','2','3','2','3','1','2','3','2','C44','3','1','2','1','3','1','1','2','1','2','2','1','1','2','1','2','1','2','4','1','1','2','1','2','1','2','2','1','1','2','3','2','1','3','1','2','3','2','2','1','1','2','blank','1','2','1','1','2','1','2','1','2','5','2','1','2','3','2','2','1','1','2','1','2','2','1','2','2','1','2','4','2','1','2','1','2','1','2','1','2','2','1','1','2','2','1','3','1','2','1','1','2','2','1','2','1','1','3','1','1','3','2'],'stool.ASD.27.2': ['stool.ASD.27.2','ATCGCACAGTAA','CCGGACTACHVGGGTWTCTAAT','1','27','2','UCDenver','Yes','1','NA','17','8','7','24','7','Male','5','Yes','less_than 1/month','1-2/month','less_than 1/month','1-2/month','None','2/4/14','CO','CO','3.2','lf_milk','2/4/14','45','3','7','0','1','0','0','0','0','2','2','1','2','6','3','2','1','2','blank','1','1','2','1','2','1','2','1','2','4','1','1','2','1','2','1','2','1','2','5','1','6','2','2','1','1','2','2','1','2','4','2','C50','6','3','2','1','1','2','4','1','4','1','3','1','2','1','3','1','2','2','3','2','1','2','1','2','1','2','2','1','4','2','2','2','1','2','1','2','2','1','2','blank','3','2','1','1','1','2','1','2','1','2','1','2','2','1','2','1','1','2','4','1','1','2','1','2','2','1','1','2','1','2','2','2','4','1','2','1','2','1','1','2','2','2','4','2','3','1','1','2','2','1','3','1','1','2','4','1','1','1','2','1','5','1'],'stool.control.40C.1': ['stool.control.40C.1','TCGACATCTCTT','CCGGACTACHVGGGTWTCTAAT','1','40','1','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','7','Yes','less_than 1/month','less_than 1/month','3-4/month','less_than 1/month','None','3/16/14','CO','NA','0','None','3/16/14','44','3','11','0','1','0','0','0','0','1','blank','1','2','4','2','2','1','2','blank','1','1','2','1','2','1','2','1','2','1','2','4','1','3','1','2','1','1','2','3','1','1','2','1','2','2','2','2','1','2','4','2','C44','1','3','2','1','3','1','2','1','2','1','1','2','3','2','2','1','1','2','1','2','1','2','2','1','1','2','4','1','1','1','2','1','2','1','2','2','3','2','2','1','2','2','3','1','1','2','1','2','1','2','2','1','2','2','2','1','1','2','2','3','1','2','1','2','3','2','3','2','1','2','2','2','1','2','1','2','1','2','1','2','3','1','2','2','1','2','2','1','4','1','4','1','2','2','4','3','blank','2','1','2','3','1'],'stool.control.30C.3': ['stool.control.30C.3','CATTATGGCGTG','CCGGACTACHVGGGTWTCTAAT','1','30','2','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','6','Yes','less_than 1/month','less_than 1/month','1-2/month','1-2/month','blank','9/4/14','CO','NA','10.9','low_meat','9/4/14','44','3','6','0','1','0','0','0','0','1','blank','1','2','5','2','2','2','1','1','1','4','1','1','2','4','1','1','2','1','2','4','1','1','2','3','1','1','2','5','2','3','2','1','2','1','2','1','1','2','5','2','C44','1','3','2','3','2','2','2','1','2','1','2','1','4','1','1','2','2','1','4','2','1','2','1','1','2','2','3','1','3','1','2','2','1','2','2','3','2','2','2','3','3','2','1','1','1','2','1','2','1','2','2','1','1','2','1','2','1','2','1','2','1','2','2','2','3','2','4','2','1','2','1','2','4','1','1','2','1','2','1','2','1','2','2','1','1','2','4','1','2','1','2','1','3','1','3','2','1','3','1','2','2','1'],'stool.control.30C.1': ['stool.control.30C.1','GTGTTGTCGTGC','CCGGACTACHVGGGTWTCTAAT','1','30','1','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','5','Yes','less_than 1/month','less_than 1/month','less_than 1/month','3-4/month','Constipation','10/8/13','CO','NA','0','low_meat/high_dairy','10/8/13','42','3','8','0','1','0','0','0','0','1','blank','1','2','6','3','2','1','2','blank','2','1','2','1','2','2','1','1','2','1','2','3','2','3','2','2','1','1','2','3','2','2','1','1','2','1','2','1','3','2','3','2','C44','1','4','2','4','1','2','3','1','1','2','1','2','4','1','1','2','2','1','1','2','2','1','2','1','1','2','3','1','3','1','blank','2','1','3','2','1','2','2','1','1','4','2','1','1','1','2','1','2','1','2','1','2','1','2','1','2','2','2','1','2','2','2','1','2','2','1','4','1','1','2','1','2','2','1','1','2','2','1','1','2','1','2','2','1','1','2','3','1','1','2','3','1','3','1','5','1','2','blank','2','1','2','1'],'stool.ASD.24.2': ['stool.ASD.24.2','ATGATGAGCCTC','CCGGACTACHVGGGTWTCTAAT','1','24','2','UCDenver','Yes','1','NA','19','9','2','45','6','Male','5','No','No','No','No','No','blank','4/3/14','CO','CO','5.3','Pediasure/vitamins/supplements/DHA Omega 3','3/24/14','41','3','4','0','0','0','0','0','1','blank','blank','4','2','1','2','2','1','2','blank','1','1','2','1','2','3','1','3','1','4','2','4','2','4','2','3','1','2','2','1','2','2','3','4','3','1','2','4','1','2','6','2','C44','5','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','blank','2','1','2','2','1','1','2','1','2','3','1','3','2','1','1','2','2','2','1','2','blank','1','2','blank','1','1','2','1','2','1','2','3','2','2','1','2','1','1','2','1','2','1','2','1','2','3','1','4','3','1','2','2','2','4','1','1','2','1','2','1','2','2','1','2','1','2','1','4','2','1','2','1','2','4','3','5','2','1','1','2','4','3','1'],'stool.control.30C.5': ['stool.control.30C.5','TCTCTACCACTC','CCGGACTACHVGGGTWTCTAAT','2','30','4','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','7','Yes','1-2/month','1-2/month','1-2/month','less_than 1/month','blank','missing','CO','NA','missing','None','9/28/15','53','4','2','0','1','0','0','0','0','1','blank','1','2','1','2','2','1','2','blank','1','2','1','1','2','4','1','1','2','1','2','5','2','2','1','1','2','1','2','6','1','1','2','1','2','1','2','1','1','2','6','2','C44','3','2','2','4','4','2','4','2','1','2','2','2','4','2','2','1','1','2','2','1','2','1','2','1','1','2','4','1','2','1','2','3','2','2','1','3','2','1','2','blank','3','2','1','1','1','2','1','2','1','2','1','2','2','1','1','2','1','2','1','2','1','2','1','2','5','2','2','1','4','1','2','2','2','1','1','2','1','2','3','1','3','2','3','1','1','2','4','1','4','2','4','1','4','1','5','2','1','4','1','1','1','2'],'stool.control.30C.4': ['stool.control.30C.4','ATGATGAGCCTC','CCGGACTACHVGGGTWTCTAAT','2','30','3','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','6','Yes','1-2/month','less_than 1/month','1-2/month','less_than 1/month','blank','missing','CO','NA','missing','low_meat','4/15/15','50','4','0','0','1','0','0','0','0','1','blank','1','2','1','2','2','1','2','blank','1','1','2','1','2','5','1','1','2','1','2','6','1','4','2','2','1','1','2','6','2','2','2','1','2','1','2','1','2','2','4','2','C50','3','2','2','4','4','2','4','2','1','2','1','2','3','2','4','1','1','2','2','1','1','2','1','2','2','2','5','2','2','2','1','3','2','2','1','3','2','1','2','blank','5','2','1','1','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','1','2','3','1','4','2','1','2','3','2','1','2','1','2','1','2','1','2','3','1','2','1','1','2','4','1','4','2','4','1','4','1','5','2','1','4','1','1','1','2'],'stool.control.39C.1': ['stool.control.39C.1','GTATCTGCGCGT','CCGGACTACHVGGGTWTCTAAT','1','39','1','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','5','No','No','No','No','No','blank','2/27/14','CO','CO','0','vitamins','2/27/14','55','3','11','0','1','0','0','0','0','2','3','2','1','6','2','3','1','2','blank','1','2','1','1','2','3','1','2','1','2','1','3','2','3','1','3','1','4','2','5','2','2','3','4','2','2','2','3','2','2','4','2','C15','4','1','2','1','2','1','1','2','1','2','1','2','1','2','1','2','1','2','5','1','1','2','1','2','1','2','2','1','2','1','2','1','2','3','3','3','2','3','1','1','2','3','3','1','2','2','1','2','2','2','2','2','2','1','1','2','1','2','4','2','1','2','1','2','4','2','4','2','1','2','4','2','3','1','1','2','2','1','1','2','2','1','3','1','1','2','4','1','4','1','3','1','1','2','4','1','1','2','1','2','4','1'],'stool.control.32C.2.run1': ['stool.control.32C.2.run1','AGTCGAACGAGG','CCGGACTACHVGGGTWTCTAAT','1','32','2','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','6','Yes','1-2/month','less_than 1/month','less_than 1/month','less_than 1/month','blank','4/14/14','CO','CO','5.47','supplements/gf/limited_dairy','4/13/14','57','4','3','0','1','0','0','0','0','1','blank','1','2','1','2','7','1','2','blank','1','1','2','1','2','4','1','2','1','6','2','4','2','3','1','2','1','2','2','2','1','3','3','1','2','5','2','4','2','3','2','2','C15','1','2','2','1','2','1','2','1','2','2','1','2','3','1','4','1','1','2','2','1','4','1','1','2','1','2','2','1','3','2','4','2','1','1','2','2','2','1','2','3','2','2','3','1','3','1','2','1','2','2','1','2','3','1','1','2','1','2','3','2','2','2','1','2','4','2','1','2','1','2','2','2','1','2','1','2','2','1','1','2','3','1','1','2','4','2','1','2','1','2','2','1','4','1','2','1','4','1','2','4','4','1'],'stool.control.39C.3': ['stool.control.39C.3','GTCGTGTAGCCT','CCGGACTACHVGGGTWTCTAAT','2','39','3','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','6','No','No','No','No','No','blank','missing','CO','CO','missing','None','1/14/14','55','4','1','0','1','0','0','0','0','1','blank','1','2','5','2','3','1','2','blank','1','3','1','1','2','2','1','1','2','4','1','5','2','1','2','4','2','3','3','4','2','2','3','3','2','3','2','4','2','3','4','3','C15','4','1','2','1','4','2','1','2','1','2','1','2','2','1','1','2','1','2','4','2','1','2','2','1','1','2','1','2','2','1','2','1','2','3','2','2','3','2','2','1','3','3','3','1','3','2','2','2','2','2','1','2','2','2','1','2','1','2','4','3','1','2','3','3','3','2','4','1','1','2','4','2','2','1','1','2','2','2','1','2','3','2','3','1','3','3','4','1','2','2','2','1','3','1','4','2','1','2','1','3','3','2'],'stool.control.39C.4': ['stool.control.39C.4','CTCACAACCGTG','CCGGACTACHVGGGTWTCTAAT','2','39','4','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','7','No','No','No','No','No','blank','missing','CO','CO','missing','None','10/27/15','64','4','3','0','1','0','0','0','0','2','2','1','2','6','2','3','1','2','blank','2','3','1','1','2','3','1','3','1','1','2','4','1','3','2','1','2','4','2','4','2','3','3','3','2','1','2','4','1','2','5','3','C44','6','3','2','3','4','1','2','1','1','2','2','1','3','1','1','2','1','2','4','1','1','2','3','1','1','2','2','1','1','2','2','1','2','4','1','2','3','1','2','blank','3','2','3','1','2','2','1','2','1','2','2','1','2','1','1','2','3','2','2','2','1','2','2','2','3','1','4','1','1','2','4','2','3','2','1','2','1','2','1','2','1','2','2','1','3','2','5','1','4','1','3','1','1','2','1','2','3','3','2','1','3','1'],'stool.control.31C.1': ['stool.control.31C.1','AAGGCGCTCCTT','CCGGACTACHVGGGTWTCTAAT','1','31','1','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','5','No','No','No','No','No','blank','10/31/13','CO','CO','0','supplements/cf','10/29/13','40','3','4','0','1','0','0','0','0','blank','blank','1','2','1','2','2','1','2','blank','1','1','2','1','2','2','1','5','1','2','2','1','2','1','2','3','2','5','2','1','2','5','2','3','2','1','2','3','4','3','1','2','blank','1','1','2','1','1','2','2','1','1','2','1','2','1','2','1','2','2','1','2','1','3','1','1','2','1','2','1','2','2','2','1','2','3','1','2','3','2','1','2','blank','1','2','blank','1','1','2','2','1','2','2','1','2','1','2','1','2','2','2','5','3','1','2','1','2','1','2','4','2','1','2','1','2','4','2','1','2','1','2','3','2','2','2','1','2','1','2','5','1','1','2','2','2','1','2','1','2','1','4','2','1','1','2'],'stool.control.31C.2': ['stool.control.31C.2','GAACACTTTGGA','CCGGACTACHVGGGTWTCTAAT','1','31','2','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','5','missing','blank','blank','blank','blank','blank','4/27/14','CO','CO','5.9','supplements/cf','blank','40','3','6','0','1','0','0','0','0','2','4','1','2','1','2','2','1','2','blank','1','4','1','1','2','1','2','6','1','3','2','1','2','1','2','5','1','6','2','1','2','4','2','2','2','3','2','3','5','3','1','2','blank','1','1','2','1','1','2','2','3','1','2','1','2','1','2','1','2','3','1','2','1','1','2','2','2','1','2','1','2','2','3','4','2','3','2','3','1','2','1','2','3','2','2','1','1','1','2','1','2','1','2','1','2','3','2','3','3','2','2','3','2','1','2','1','2','2','1','1','2','1','2','1','2','3','2','1','2','1','2','1','2','3','1','1','2','1','2','5','2','1','2','2','1','3','1','2','1','blank','5','2','1','1','2'],'stool.control.31C.3': ['stool.control.31C.3','CAAATTCGGGAT','CCGGACTACHVGGGTWTCTAAT','2','31','3','UCDenver','No','0','No','missing','missing','missing','missing','missing','Male','6','No','No','No','No','No','blank','missing','CO','CO','missing','cf/probio/zinc_iron_supplements/omega_3','2/23/15','44','3','8','0','1','0','0','0','0','2','4','2','1','4','1','7','1','2','blank','1','1','2','1','2','1','2','6','1','3','2','4','2','1','2','3','1','6','2','1','2','6','3','5','2','2','2','3','1','2','1','2','blank','1','1','2','1','1','2','2','1','1','2','1','2','2','1','1','2','4','1','3','1','1','2','1','2','1','2','1','2','2','2','3','1','2','3','2','2','2','3','2','3','2','2','blank','1','1','2','1','2','1','2','2','3','2','2','1','2','2','2','1','2','1','2','1','2','2','2','1','2','1','2','1','2','6','1','2','2','1','2','1','2','1','2','1','2','1','2','5','2','1','2','2','1','1','2','1','2','1','4','2','4','1','2'],'stool.control.32C.1': ['stool.control.32C.1','AGATTGACCAAC','CCGGACTACHVGGGTWTCTAAT','1','32','1','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','6','Yes','1-2/week','less_than 1/month','less_than 1/month','less_than 1/month','blank','10/31/14','CO','KY','0','supplements/gf/limited_dairy','10/31/13','55','4','1','0','1','0','0','0','0','1','blank','3','1','1','2','7','2','1','1','1','1','2','1','2','3','1','1','2','6','2','4','2','1','2','3','1','3','2','5','2','2','3','3','1','1','2','3','2','3','2','3','C15','1','4','3','4','1','2','1','2','1','2','1','2','3','2','4','1','1','2','2','2','3','2','1','2','1','2','3','1','3','1','1','2','1','3','2','3','2','2','1','3','1','2','blank','1','3','2','1','2','1','2','1','2','4','2','3','2','1','2','1','2','1','2','1','2','3','2','2','1','1','2','2','2','2','1','1','2','1','2','1','2','2','1','1','2','3','2','1','2','3','1','1','2','4','1','3','1','4','4','1','4','3','2'],'stool.control.32C.3': ['stool.control.32C.3','TTGGGTACACGT','CCGGACTACHVGGGTWTCTAAT','1','32','3','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','6','No','No','No','No','No','blank','8/28/14','CO','KY','9.93','supplements/gf/limited_dairy','8/26/14','60','4','3','0','1','0','0','0','0','1','blank','1','2','1','2','7','1','2','blank','1','1','2','1','2','3','1','1','2','5','2','1','2','1','2','2','1','1','2','4','2','1','2','2','2','4','2','3','1','2','1','2','blank','1','2','2','1','3','1','3','1','3','2','4','2','1','2','5','1','1','2','4','1','3','1','1','2','1','2','3','1','4','2','4','2','2','1','2','1','2','2','2','3','3','3','3','1','3','2','1','2','2','2','1','2','3','2','1','2','3','2','2','3','1','2','1','2','4','2','3','1','1','2','4','2','2','1','1','2','2','2','1','2','2','1','1','2','4','2','1','2','1','2','2','2','4','1','3','1','4','1','2','4','5','1'],'stool.ASD.27.5': ['stool.ASD.27.5','ATTCTGCCGAAG','CCGGACTACHVGGGTWTCTAAT','2','27','4','UCDenver','Yes','1','NA','25','2','5','26','8','Male','6','Yes','1-2/month','3-4/month','3-4/month','1-2/month','None','missing','CO','CO','missing','vitamins/probio','9/13/15','54','4','0','0','1','0','0','0','0','2','4','1','2','6','2','5','1','2','blank','3','1','2','1','2','1','2','1','2','5','2','4','1','1','2','5','1','1','2','5','1','2','3','3','2','1','2','1','3','2','3','2','C50','1','2','2','1','1','2','4','2','3','1','3','2','6','3','2','1','4','1','3','1','1','2','1','2','1','2','3','1','3','1','3','1','2','5','2','2','3','1','2','blank','2','2','1','1','1','2','1','2','1','2','1','2','2','2','1','2','1','2','6','3','1','2','1','2','5','1','2','1','1','2','5','2','4','1','2','3','1','2','1','2','1','2','6','2','2','2','1','2','3','1','4','1','1','2','1','2','1','1','2','1','5','2'],'stool.control.40C.2': ['stool.control.40C.2','GATCTGCGATCC','CCGGACTACHVGGGTWTCTAAT','1','40','2','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','8','Yes','less_than 1/month','less_than 1/month','3-4/month','less_than 1/month','None','9/8/14','CO','NA','5.77','None','blank','47.5','3','11','0','1','0','0','0','0','blank','blank','1','2','4','2','2','1','2','blank','1','3','1','1','2','3','1','2','1','1','2','3','1','1','2','4','1','1','2','4','1','2','2','1','2','2','1','2','2','2','5','2','C44','3','3','2','1','2','1','2','1','1','2','2','1','2','1','1','2','1','2','3','1','1','2','2','1','3','1','4','1','2','1','2','1','2','1','2','3','2','3','2','1','2','2','3','1','2','1','1','2','1','2','1','2','4','2','1','2','1','2','3','1','blank','2','3','2','3','1','2','1','1','2','2','2','3','1','1','2','1','2','1','2','1','2','2','1','1','2','4','2','3','1','3','1','4','1','4','1','1','3','1','3','3','1'],'stool.ASD.22.4': ['stool.ASD.22.4','AGCATGTCCCGT','CCGGACTACHVGGGTWTCTAAT','2','22','4','UCDenver','Yes','1','NA','22','13','5','26','8','Male','5','Yes','1-2/month','less_than 1/month','less_than 1/month','less_than 1/month','blank','missing','CO','NA','missing','supplements/probiotics/vitamins','1/6/14','51','blank','blank','0','1','1','0','0','0','2','4','1','2','1','2','7','3','1','1','3','4','1','1','2','1','2','1','2','2','1','5','2','3','2','4','1','6','2','3','1','4','3','1','2','3','2','1','1','2','2','2','C50','1','1','2','2','1','2','1','2','1','2','3','2','1','2','1','2','1','2','4','2','1','2','3','3','2','1','1','2','2','2','1','3','2','1','2','4','3','1','2','blank','1','2','blank','1','1','2','1','2','1','2','4','2','3','1','1','2','1','2','1','2','1','2','1','2','3','1','2','1','1','2','2','2','3','2','1','2','2','2','1','2','2','2','3','2','1','2','1','2','2','2','1','2','1','2','3','2','1','1','2','1','1','2'],'stool.control.40C.4': ['stool.control.40C.4','GAGCCATCTGTA','CCGGACTACHVGGGTWTCTAAT','2','40','3','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','8','Yes','less_than 1/month','less_than 1/month','1-2/month','less_than 1/month','None','missing','CO','NA','missing','None','4/15/15','50.5','4','2','0','1','0','0','0','0','1','blank','1','2','6','3','2','1','2','blank','1','1','2','1','2','3','1','1','2','1','2','5','1','3','2','2','1','1','2','4','1','1','2','1','2','2','2','3','3','2','4','2','C15','3','2','2','2','4','1','1','2','1','2','1','2','2','1','1','2','1','2','2','1','1','2','1','2','2','2','6','2','2','1','1','4','2','1','2','4','2','1','2','blank','2','1','1','1','1','2','2','1','1','2','2','2','3','1','2','1','1','2','3','3','1','2','1','2','3','1','4','2','1','2','3','2','2','1','3','2','1','2','1','2','1','2','2','2','1','2','5','1','4','2','2','2','4','1','3','1','1','2','1','2','2','1'],'stool.control.40C.5': ['stool.control.40C.5','TAACGTGTGTGC','CCGGACTACHVGGGTWTCTAAT','2','40','4','UCDenver','No','0','No','missing','missing','missing','missing','missing','Female','9','Yes','less_than 1/month','less_than 1/month','3-4/month','less_than 1/month','Diarrhea','missing','CO','NA','missing','None','9/29/15','53.4','4','3','0','1','0','0','0','0','1','blank','1','2','6','3','2','1','2','blank','1','1','2','1','2','3','2','1','2','1','2','6','2','2','1','1','2','1','2','5','1','1','2','3','2','1','2','3','1','2','6','2','C44','4','4','2','1','2','1','2','1','1','2','2','1','2','2','2','1','blank','2','3','2','1','2','2','2','1','2','4','1','2','1','1','1','2','1','2','2','3','1','2','blank','2','2','1','1','2','1','1','2','1','2','2','2','4','1','2','2','1','2','2','2','2','2','1','2','4','2','1','2','1','2','2','2','2','1','1','2','1','2','1','2','2','2','2','2','1','2','5','1','1','2','2','1','2','1','3','2','1','4','1','3','1','2'] };
+var g_animatableMappingFileHeaders = ['Run','Subject','Sample_Number','ASD_Numeric'];
+
+var g_spherePositions = new Array();
+g_spherePositions['stool.ASD.12.1'] = { 'name': 'stool.ASD.12.1', 'color': 0, 'x': -0.206579, 'y': -0.204073, 'z': 0.038514, 'P1': -0.206579, 'P2': -0.204073, 'P3': 0.038514, 'P4': 0.032412, 'P5': -0.132069, 'P6': -0.065218, 'P7': 0.069529, 'P8': -0.024925, 'P9': 0.041171, 'P10': 0.078129 };
+g_spherePositions['stool.ASD.12.2'] = { 'name': 'stool.ASD.12.2', 'color': 0, 'x': 0.054612, 'y': -0.117505, 'z': 0.057689, 'P1': 0.054612, 'P2': -0.117505, 'P3': 0.057689, 'P4': 0.065738, 'P5': -0.145422, 'P6': -0.005701, 'P7': 0.127884, 'P8': -0.049545, 'P9': -0.001904, 'P10': 0.090613 };
+g_spherePositions['stool.ASD.14.1'] = { 'name': 'stool.ASD.14.1', 'color': 0, 'x': -0.206579, 'y': 0.175534, 'z': 0.051261, 'P1': -0.206579, 'P2': 0.175534, 'P3': 0.051261, 'P4': 0.000310, 'P5': -0.011667, 'P6': -0.023734, 'P7': -0.010529, 'P8': 0.039173, 'P9': 0.053038, 'P10': -0.012304 };
+g_spherePositions['stool.ASD.14.2'] = { 'name': 'stool.ASD.14.2', 'color': 0, 'x': 0.054612, 'y': 0.205197, 'z': 0.036856, 'P1': 0.054612, 'P2': 0.205197, 'P3': 0.036856, 'P4': -0.044765, 'P5': -0.073241, 'P6': 0.017038, 'P7': -0.000340, 'P8': 0.001924, 'P9': 0.067553, 'P10': -0.001217 };
+g_spherePositions['stool.ASD.14.3'] = { 'name': 'stool.ASD.14.3', 'color': 0, 'x': 0.315804, 'y': 0.171371, 'z': 0.052885, 'P1': 0.315804, 'P2': 0.171371, 'P3': 0.052885, 'P4': -0.048327, 'P5': -0.013685, 'P6': -0.034196, 'P7': -0.023102, 'P8': 0.042120, 'P9': 0.002267, 'P10': 0.024890 };
+g_spherePositions['stool.ASD.22.1'] = { 'name': 'stool.ASD.22.1', 'color': 0, 'x': -0.206579, 'y': 0.108011, 'z': -0.159217, 'P1': -0.206579, 'P2': 0.108011, 'P3': -0.159217, 'P4': 0.071338, 'P5': -0.149169, 'P6': 0.043278, 'P7': -0.116945, 'P8': 0.005503, 'P9': -0.021111, 'P10': -0.032989 };
+g_spherePositions['stool.ASD.22.2'] = { 'name': 'stool.ASD.22.2', 'color': 0, 'x': 0.054612, 'y': 0.113028, 'z': -0.103034, 'P1': 0.054612, 'P2': 0.113028, 'P3': -0.103034, 'P4': 0.015654, 'P5': -0.049354, 'P6': 0.021391, 'P7': 0.002832, 'P8': 0.016096, 'P9': -0.019716, 'P10': 0.034078 };
+g_spherePositions['stool.ASD.22.3'] = { 'name': 'stool.ASD.22.3', 'color': 0, 'x': 0.315804, 'y': 0.032722, 'z': -0.115877, 'P1': 0.315804, 'P2': 0.032722, 'P3': -0.115877, 'P4': 0.104055, 'P5': -0.067879, 'P6': 0.070080, 'P7': -0.066520, 'P8': 0.019420, 'P9': -0.070368, 'P10': -0.024988 };
+g_spherePositions['stool.ASD.24.1'] = { 'name': 'stool.ASD.24.1', 'color': 0, 'x': -0.206579, 'y': -0.045467, 'z': -0.089919, 'P1': -0.206579, 'P2': -0.045467, 'P3': -0.089919, 'P4': -0.069843, 'P5': 0.054978, 'P6': 0.048310, 'P7': 0.114970, 'P8': -0.051060, 'P9': 0.083986, 'P10': -0.012756 };
+g_spherePositions['stool.ASD.24.2'] = { 'name': 'stool.ASD.24.2', 'color': 0, 'x': 0.054612, 'y': -0.076976, 'z': -0.072067, 'P1': 0.054612, 'P2': -0.076976, 'P3': -0.072067, 'P4': -0.071585, 'P5': 0.046548, 'P6': 0.069445, 'P7': 0.111040, 'P8': 0.024705, 'P9': 0.062127, 'P10': -0.040740 };
+g_spherePositions['stool.ASD.27.1'] = { 'name': 'stool.ASD.27.1', 'color': 0, 'x': -0.206579, 'y': 0.037175, 'z': 0.048640, 'P1': -0.206579, 'P2': 0.037175, 'P3': 0.048640, 'P4': -0.017330, 'P5': 0.031492, 'P6': 0.090897, 'P7': 0.068073, 'P8': 0.021025, 'P9': -0.001533, 'P10': -0.043425 };
+g_spherePositions['stool.ASD.27.2'] = { 'name': 'stool.ASD.27.2', 'color': 0, 'x': 0.054612, 'y': -0.092114, 'z': 0.044545, 'P1': 0.054612, 'P2': -0.092114, 'P3': 0.044545, 'P4': -0.156850, 'P5': 0.054562, 'P6': 0.141198, 'P7': -0.084793, 'P8': -0.040087, 'P9': -0.032671, 'P10': 0.053911 };
+g_spherePositions['stool.ASD.6.1'] = { 'name': 'stool.ASD.6.1', 'color': 0, 'x': -0.206579, 'y': -0.150062, 'z': -0.086772, 'P1': -0.206579, 'P2': -0.150062, 'P3': -0.086772, 'P4': -0.077643, 'P5': 0.013423, 'P6': -0.049113, 'P7': -0.012240, 'P8': 0.087772, 'P9': 0.045365, 'P10': 0.062072 };
+g_spherePositions['stool.ASD.6.2'] = { 'name': 'stool.ASD.6.2', 'color': 0, 'x': 0.054612, 'y': -0.193008, 'z': -0.126277, 'P1': 0.054612, 'P2': -0.193008, 'P3': -0.126277, 'P4': -0.031788, 'P5': -0.041642, 'P6': -0.031560, 'P7': -0.058893, 'P8': 0.140058, 'P9': 0.013636, 'P10': 0.001804 };
+g_spherePositions['stool.ASD.7.1'] = { 'name': 'stool.ASD.7.1', 'color': 0, 'x': -0.206579, 'y': 0.027127, 'z': 0.113111, 'P1': -0.206579, 'P2': 0.027127, 'P3': 0.113111, 'P4': 0.035551, 'P5': -0.046391, 'P6': 0.033107, 'P7': 0.030413, 'P8': -0.026005, 'P9': 0.027926, 'P10': -0.067426 };
+g_spherePositions['stool.ASD.7.2'] = { 'name': 'stool.ASD.7.2', 'color': 0, 'x': 0.054612, 'y': -0.001811, 'z': 0.135088, 'P1': 0.054612, 'P2': -0.001811, 'P3': 0.135088, 'P4': 0.004622, 'P5': -0.005083, 'P6': -0.008364, 'P7': 0.005095, 'P8': -0.045745, 'P9': -0.038363, 'P10': -0.022929 };
+g_spherePositions['stool.ASD.7.3'] = { 'name': 'stool.ASD.7.3', 'color': 0, 'x': 0.315804, 'y': -0.072582, 'z': 0.184604, 'P1': 0.315804, 'P2': -0.072582, 'P3': 0.184604, 'P4': 0.123335, 'P5': -0.011520, 'P6': 0.017460, 'P7': -0.017097, 'P8': -0.065773, 'P9': 0.002663, 'P10': 0.008180 };
+g_spherePositions['stool.ASD.7.4'] = { 'name': 'stool.ASD.7.4', 'color': 0, 'x': 0.576995, 'y': -0.018353, 'z': 0.189489, 'P1': 0.576995, 'P2': -0.018353, 'P3': 0.189489, 'P4': 0.118345, 'P5': -0.002240, 'P6': 0.020526, 'P7': -0.006812, 'P8': -0.053959, 'P9': -0.042988, 'P10': -0.034184 };
+g_spherePositions['stool.control.13S.1B'] = { 'name': 'stool.control.13S.1B', 'color': 0, 'x': -0.206579, 'y': -0.114238, 'z': 0.128694, 'P1': -0.206579, 'P2': -0.114238, 'P3': 0.128694, 'P4': 0.015841, 'P5': -0.040790, 'P6': -0.028884, 'P7': 0.043995, 'P8': 0.133814, 'P9': 0.013923, 'P10': 0.034406 };
+g_spherePositions['stool.control.13S.2'] = { 'name': 'stool.control.13S.2', 'color': 0, 'x': 0.054612, 'y': -0.086949, 'z': -0.012673, 'P1': 0.054612, 'P2': -0.086949, 'P3': -0.012673, 'P4': 0.030544, 'P5': -0.002170, 'P6': 0.004399, 'P7': 0.064306, 'P8': 0.011396, 'P9': 0.068845, 'P10': -0.067763 };
+g_spherePositions['stool.control.15S.1'] = { 'name': 'stool.control.15S.1', 'color': 0, 'x': -0.206579, 'y': 0.234331, 'z': 0.054117, 'P1': -0.206579, 'P2': 0.234331, 'P3': 0.054117, 'P4': 0.001957, 'P5': -0.022220, 'P6': -0.018923, 'P7': -0.055601, 'P8': 0.041982, 'P9': -0.007666, 'P10': 0.024129 };
+g_spherePositions['stool.control.15S.2'] = { 'name': 'stool.control.15S.2', 'color': 0, 'x': 0.054612, 'y': 0.210303, 'z': 0.047102, 'P1': 0.054612, 'P2': 0.210303, 'P3': 0.047102, 'P4': -0.037340, 'P5': -0.022769, 'P6': -0.010860, 'P7': -0.036423, 'P8': 0.047049, 'P9': -0.039523, 'P10': 0.009512 };
+g_spherePositions['stool.control.15S.3'] = { 'name': 'stool.control.15S.3', 'color': 0, 'x': 0.315804, 'y': 0.169518, 'z': 0.048316, 'P1': 0.315804, 'P2': 0.169518, 'P3': 0.048316, 'P4': -0.017266, 'P5': -0.011672, 'P6': -0.010573, 'P7': -0.028806, 'P8': 0.052622, 'P9': -0.032847, 'P10': -0.006133 };
+g_spherePositions['stool.control.28S.2'] = { 'name': 'stool.control.28S.2', 'color': 0, 'x': -0.206579, 'y': 0.135252, 'z': 0.003614, 'P1': -0.206579, 'P2': 0.135252, 'P3': 0.003614, 'P4': -0.052549, 'P5': 0.018040, 'P6': 0.042062, 'P7': 0.002431, 'P8': -0.012053, 'P9': -0.057256, 'P10': -0.045716 };
+g_spherePositions['stool.control.30C.1'] = { 'name': 'stool.control.30C.1', 'color': 0, 'x': -0.206579, 'y': 0.006979, 'z': 0.065604, 'P1': -0.206579, 'P2': 0.006979, 'P3': 0.065604, 'P4': 0.150616, 'P5': 0.150182, 'P6': -0.036489, 'P7': -0.056808, 'P8': -0.036237, 'P9': 0.138575, 'P10': 0.018744 };
+g_spherePositions['stool.control.30C.3'] = { 'name': 'stool.control.30C.3', 'color': 0, 'x': 0.054612, 'y': -0.022744, 'z': -0.082584, 'P1': 0.054612, 'P2': -0.022744, 'P3': -0.082584, 'P4': -0.020263, 'P5': 0.073175, 'P6': -0.058491, 'P7': 0.005345, 'P8': -0.038159, 'P9': -0.057925, 'P10': 0.027500 };
+g_spherePositions['stool.control.31C.1'] = { 'name': 'stool.control.31C.1', 'color': 0, 'x': -0.206579, 'y': -0.206579, 'z': 0.015843, 'P1': -0.206579, 'P2': -0.206579, 'P3': 0.015843, 'P4': 0.055183, 'P5': -0.212984, 'P6': -0.059112, 'P7': 0.025436, 'P8': 0.019343, 'P9': -0.032775, 'P10': 0.053689 };
+g_spherePositions['stool.control.31C.2'] = { 'name': 'stool.control.31C.2', 'color': 0, 'x': 0.054612, 'y': -0.051149, 'z': 0.090553, 'P1': 0.054612, 'P2': -0.051149, 'P3': 0.090553, 'P4': -0.011893, 'P5': -0.040033, 'P6': -0.050532, 'P7': 0.062842, 'P8': 0.088368, 'P9': 0.025038, 'P10': 0.019220 };
+g_spherePositions['stool.control.32C.1'] = { 'name': 'stool.control.32C.1', 'color': 0, 'x': -0.206579, 'y': -0.162830, 'z': 0.071136, 'P1': -0.206579, 'P2': -0.162830, 'P3': 0.071136, 'P4': -0.102562, 'P5': -0.015856, 'P6': -0.094311, 'P7': -0.079092, 'P8': -0.040962, 'P9': -0.004988, 'P10': -0.050217 };
+g_spherePositions['stool.control.32C.2.run1'] = { 'name': 'stool.control.32C.2.run1', 'color': 0, 'x': 0.054612, 'y': -0.200365, 'z': 0.088901, 'P1': 0.054612, 'P2': -0.200365, 'P3': 0.088901, 'P4': -0.098317, 'P5': -0.013693, 'P6': -0.127719, 'P7': -0.142872, 'P8': -0.061059, 'P9': -0.010584, 'P10': -0.103437 };
+g_spherePositions['stool.control.32C.3'] = { 'name': 'stool.control.32C.3', 'color': 0, 'x': 0.315804, 'y': -0.162748, 'z': 0.058244, 'P1': 0.315804, 'P2': -0.162748, 'P3': 0.058244, 'P4': -0.099421, 'P5': -0.013283, 'P6': -0.099919, 'P7': -0.091323, 'P8': -0.032962, 'P9': -0.006498, 'P10': -0.038319 };
+g_spherePositions['stool.control.38C.2B'] = { 'name': 'stool.control.38C.2B', 'color': 0, 'x': 0.054612, 'y': -0.083565, 'z': -0.056246, 'P1': 0.054612, 'P2': -0.083565, 'P3': -0.056246, 'P4': 0.035671, 'P5': 0.113453, 'P6': -0.007447, 'P7': 0.033618, 'P8': 0.037366, 'P9': 0.004785, 'P10': -0.022321 };
+g_spherePositions['stool.control.39C.1'] = { 'name': 'stool.control.39C.1', 'color': 0, 'x': -0.206579, 'y': -0.081879, 'z': -0.068590, 'P1': -0.206579, 'P2': -0.081879, 'P3': -0.068590, 'P4': 0.171281, 'P5': 0.054849, 'P6': 0.053777, 'P7': 0.022910, 'P8': -0.035687, 'P9': -0.000693, 'P10': -0.096091 };
+g_spherePositions['stool.control.39C.2'] = { 'name': 'stool.control.39C.2', 'color': 0, 'x': 0.054612, 'y': -0.122326, 'z': -0.128403, 'P1': 0.054612, 'P2': -0.122326, 'P3': -0.128403, 'P4': 0.067444, 'P5': 0.041582, 'P6': 0.015708, 'P7': -0.025799, 'P8': 0.004856, 'P9': -0.028573, 'P10': -0.061650 };
+g_spherePositions['stool.control.40C.1'] = { 'name': 'stool.control.40C.1', 'color': 0, 'x': -0.206579, 'y': 0.000277, 'z': -0.108341, 'P1': -0.206579, 'P2': 0.000277, 'P3': -0.108341, 'P4': 0.070997, 'P5': 0.036544, 'P6': -0.040822, 'P7': -0.110155, 'P8': -0.067872, 'P9': 0.034608, 'P10': 0.084870 };
+g_spherePositions['stool.control.40C.2'] = { 'name': 'stool.control.40C.2', 'color': 0, 'x': 0.054612, 'y': 0.036513, 'z': -0.066781, 'P1': 0.054612, 'P2': 0.036513, 'P3': -0.066781, 'P4': -0.041882, 'P5': 0.058904, 'P6': -0.084051, 'P7': 0.004821, 'P8': -0.065687, 'P9': -0.021970, 'P10': 0.094345 };
+g_spherePositions['stool.ASD.14.4'] = { 'name': 'stool.ASD.14.4', 'color': 0, 'x': 0.576995, 'y': 0.288497, 'z': -0.024072, 'P1': 0.576995, 'P2': 0.288497, 'P3': -0.024072, 'P4': -0.150734, 'P5': -0.063100, 'P6': -0.045039, 'P7': -0.042081, 'P8': -0.041248, 'P9': 0.108402, 'P10': -0.018076 };
+g_spherePositions['stool.ASD.22.4'] = { 'name': 'stool.ASD.22.4', 'color': 0, 'x': 0.576995, 'y': 0.032996, 'z': -0.175650, 'P1': 0.576995, 'P2': 0.032996, 'P3': -0.175650, 'P4': 0.091606, 'P5': -0.073553, 'P6': 0.069945, 'P7': -0.052957, 'P8': -0.034957, 'P9': -0.068281, 'P10': -0.003528 };
+g_spherePositions['stool.ASD.27.4'] = { 'name': 'stool.ASD.27.4', 'color': 0, 'x': 0.315804, 'y': -0.132227, 'z': 0.043097, 'P1': 0.315804, 'P2': -0.132227, 'P3': 0.043097, 'P4': -0.172636, 'P5': 0.013382, 'P6': 0.164102, 'P7': -0.001067, 'P8': -0.003209, 'P9': -0.041725, 'P10': 0.066363 };
+g_spherePositions['stool.ASD.27.5'] = { 'name': 'stool.ASD.27.5', 'color': 0, 'x': 0.576995, 'y': -0.165737, 'z': 0.056380, 'P1': 0.576995, 'P2': -0.165737, 'P3': 0.056380, 'P4': -0.133726, 'P5': 0.028800, 'P6': 0.184182, 'P7': -0.034831, 'P8': -0.056581, 'P9': 0.022870, 'P10': 0.063139 };
+g_spherePositions['stool.ASD.6.4'] = { 'name': 'stool.ASD.6.4', 'color': 0, 'x': 0.315804, 'y': -0.064409, 'z': -0.087795, 'P1': 0.315804, 'P2': -0.064409, 'P3': -0.087795, 'P4': -0.038947, 'P5': 0.029079, 'P6': -0.017333, 'P7': -0.005443, 'P8': 0.108606, 'P9': 0.071684, 'P10': 0.022873 };
+g_spherePositions['stool.control.15S.4'] = { 'name': 'stool.control.15S.4', 'color': 0, 'x': 0.576995, 'y': 0.197263, 'z': 0.082981, 'P1': 0.576995, 'P2': 0.197263, 'P3': 0.082981, 'P4': 0.045034, 'P5': 0.012904, 'P6': 0.051320, 'P7': 0.009933, 'P8': -0.000157, 'P9': 0.005073, 'P10': -0.031168 };
+g_spherePositions['stool.control.28S.3'] = { 'name': 'stool.control.28S.3', 'color': 0, 'x': 0.054612, 'y': 0.040619, 'z': -0.021495, 'P1': 0.054612, 'P2': 0.040619, 'P3': -0.021495, 'P4': -0.119065, 'P5': 0.059957, 'P6': 0.060096, 'P7': -0.014026, 'P8': 0.028682, 'P9': -0.049690, 'P10': -0.015882 };
+g_spherePositions['stool.control.30C.4'] = { 'name': 'stool.control.30C.4', 'color': 0, 'x': 0.315804, 'y': 0.072531, 'z': -0.096168, 'P1': 0.315804, 'P2': 0.072531, 'P3': -0.096168, 'P4': -0.018561, 'P5': 0.093066, 'P6': -0.065260, 'P7': 0.084509, 'P8': -0.022765, 'P9': -0.089475, 'P10': 0.025981 };
+g_spherePositions['stool.control.30C.5'] = { 'name': 'stool.control.30C.5', 'color': 0, 'x': 0.576995, 'y': 0.073475, 'z': -0.116850, 'P1': 0.576995, 'P2': 0.073475, 'P3': -0.116850, 'P4': -0.043567, 'P5': 0.068038, 'P6': -0.058683, 'P7': 0.053007, 'P8': -0.081149, 'P9': -0.049201, 'P10': -0.009852 };
+g_spherePositions['stool.control.31C.3'] = { 'name': 'stool.control.31C.3', 'color': 0, 'x': 0.315804, 'y': 0.043583, 'z': 0.029014, 'P1': 0.315804, 'P2': 0.043583, 'P3': 0.029014, 'P4': -0.055784, 'P5': 0.028730, 'P6': -0.050796, 'P7': 0.088746, 'P8': -0.007417, 'P9': 0.024458, 'P10': -0.044878 };
+g_spherePositions['stool.control.38C.1.ASU'] = { 'name': 'stool.control.38C.1.ASU', 'color': 0, 'x': -0.206579, 'y': 0.000058, 'z': -0.025487, 'P1': -0.206579, 'P2': 0.000058, 'P3': -0.025487, 'P4': 0.062178, 'P5': 0.092936, 'P6': -0.009253, 'P7': 0.082354, 'P8': 0.008785, 'P9': -0.079223, 'P10': -0.024887 };
+g_spherePositions['stool.control.39C.3'] = { 'name': 'stool.control.39C.3', 'color': 0, 'x': 0.315804, 'y': -0.088802, 'z': -0.169313, 'P1': 0.315804, 'P2': -0.088802, 'P3': -0.169313, 'P4': 0.025440, 'P5': 0.007493, 'P6': -0.000446, 'P7': -0.026124, 'P8': -0.018055, 'P9': -0.070448, 'P10': -0.074311 };
+g_spherePositions['stool.control.39C.4'] = { 'name': 'stool.control.39C.4', 'color': 0, 'x': 0.576995, 'y': -0.133379, 'z': -0.147250, 'P1': 0.576995, 'P2': -0.133379, 'P3': -0.147250, 'P4': 0.034975, 'P5': -0.000755, 'P6': -0.000356, 'P7': -0.007327, 'P8': 0.026124, 'P9': -0.055091, 'P10': -0.053688 };
+g_spherePositions['stool.control.40C.4'] = { 'name': 'stool.control.40C.4', 'color': 0, 'x': 0.315804, 'y': 0.072974, 'z': -0.104091, 'P1': 0.315804, 'P2': 0.072974, 'P3': -0.104091, 'P4': 0.011481, 'P5': 0.060386, 'P6': -0.094647, 'P7': 0.011096, 'P8': -0.088346, 'P9': -0.024041, 'P10': 0.086326 };
+g_spherePositions['stool.control.40C.5'] = { 'name': 'stool.control.40C.5', 'color': 0, 'x': 0.576995, 'y': 0.108191, 'z': -0.103834, 'P1': 0.576995, 'P2': 0.108191, 'P3': -0.103834, 'P4': 0.000154, 'P5': 0.084092, 'P6': -0.126414, 'P7': 0.028577, 'P8': -0.084266, 'P9': -0.056048, 'P10': 0.118528 };
+
+var g_ellipsesDimensions = new Array();
+var g_segments = 8, g_rings = 8, g_radius = 0.009403;
+var g_xAxisLength = 0.783573;
+var g_yAxisLength = 0.495076;
+var g_zAxisLength = 0.365139;
+var g_xMaximumValue = 0.576995;
+var g_yMaximumValue = 0.288497;
+var g_zMaximumValue = 0.189489;
+var g_xMinimumValue = -0.206579;
+var g_yMinimumValue = -0.206579;
+var g_zMinimumValue = -0.175650;
+var g_maximum = 0.576995;
+var g_pc1Label = "Sample_Number";
+var g_pc2Label = "PC1 (16.54 %)";
+var g_pc3Label = "PC2 (9.66 %)";
+var g_number_of_custom_axes = 1;
+var g_fractionExplained = [0.165434, 0.165434, 0.096625, 0.066929, 0.049241, 0.043406, 0.040384, 0.037488, 0.033097, 0.028468, 0.027558];
+var g_fractionExplainedRounded = [16.54, 16.54, 9.66, 6.69, 4.92, 4.34, 4.04, 3.75, 3.31, 2.85, 2.76];
+
+var g_taxaPositions = new Array();
+
+
+var g_vectorPositions = new Array();
+g_vectorPositions['24'] = new Array();
+g_vectorPositions['24']['stool.ASD.24.1'] = [-0.2065786419716387, -0.04546671957091079, -0.08991866247607622];
+g_vectorPositions['24']['stool.ASD.24.2'] = [0.054612463736562894, -0.07697600266338483, -0.07206704772142539];
+g_vectorPositions['13'] = new Array();
+g_vectorPositions['13']['stool.control.13S.1B'] = [-0.2065786419716387, -0.11423753196892765, 0.12869402805460406];
+g_vectorPositions['13']['stool.control.13S.2'] = [0.054612463736562894, -0.0869492787617271, -0.012673161995342309];
+g_vectorPositions['12'] = new Array();
+g_vectorPositions['12']['stool.ASD.12.1'] = [-0.2065786419716387, -0.20407344417318043, 0.03851401624162729];
+g_vectorPositions['12']['stool.ASD.12.2'] = [0.054612463736562894, -0.11750525737834129, 0.057689368551946084];
+g_vectorPositions['15'] = new Array();
+g_vectorPositions['15']['stool.control.15S.1'] = [-0.2065786419716387, 0.2343307410844286, 0.05411723117365768];
+g_vectorPositions['15']['stool.control.15S.2'] = [0.054612463736562894, 0.21030302465473935, 0.047102224989174574];
+g_vectorPositions['15']['stool.control.15S.3'] = [0.3158035694447645, 0.16951830411276672, 0.048315899170173954];
+g_vectorPositions['15']['stool.control.15S.4'] = [0.5769946751529662, 0.1972632518381891, 0.0829811183291104];
+g_vectorPositions['14'] = new Array();
+g_vectorPositions['14']['stool.ASD.14.1'] = [-0.2065786419716387, 0.17553352979427694, 0.05126124553817459];
+g_vectorPositions['14']['stool.ASD.14.2'] = [0.054612463736562894, 0.20519727694544349, 0.03685626528689274];
+g_vectorPositions['14']['stool.ASD.14.3'] = [0.3158035694447645, 0.17137136912188966, 0.05288489229916956];
+g_vectorPositions['14']['stool.ASD.14.4'] = [0.5769946751529662, 0.2884973375764831, -0.02407173696246231];
+g_vectorPositions['22'] = new Array();
+g_vectorPositions['22']['stool.ASD.22.1'] = [-0.2065786419716387, 0.10801055630557523, -0.15921672717503974];
+g_vectorPositions['22']['stool.ASD.22.2'] = [0.054612463736562894, 0.11302832969048886, -0.10303410201043024];
+g_vectorPositions['22']['stool.ASD.22.3'] = [0.3158035694447645, 0.03272169043728149, -0.11587700711830183];
+g_vectorPositions['22']['stool.ASD.22.4'] = [0.5769946751529662, 0.03299625437212312, -0.17564980317526818];
+g_vectorPositions['38'] = new Array();
+g_vectorPositions['38']['stool.control.38C.1.ASU'] = [-0.2065786419716387, 5.755401426573551e-05, -0.0254866062289322];
+g_vectorPositions['38']['stool.control.38C.2B'] = [0.054612463736562894, -0.08356501480563357, -0.05624593818252819];
+g_vectorPositions['32'] = new Array();
+g_vectorPositions['32']['stool.control.32C.1'] = [-0.2065786419716387, -0.16283010632078793, 0.07113584435266145];
+g_vectorPositions['32']['stool.control.32C.2.run1'] = [0.054612463736562894, -0.20036451737319128, 0.08890064146326943];
+g_vectorPositions['32']['stool.control.32C.3'] = [0.3158035694447645, -0.16274849197397764, 0.05824434229050082];
+g_vectorPositions['31'] = new Array();
+g_vectorPositions['31']['stool.control.31C.1'] = [-0.2065786419716387, -0.2065786419716387, 0.01584271645641287];
+g_vectorPositions['31']['stool.control.31C.2'] = [0.054612463736562894, -0.051148564123808304, 0.09055330282347236];
+g_vectorPositions['31']['stool.control.31C.3'] = [0.3158035694447645, 0.04358278070828989, 0.029013799252697592];
+g_vectorPositions['30'] = new Array();
+g_vectorPositions['30']['stool.control.30C.1'] = [-0.2065786419716387, 0.006978898245184565, 0.06560428392156327];
+g_vectorPositions['30']['stool.control.30C.3'] = [0.054612463736562894, -0.02274384116095731, -0.08258358877331926];
+g_vectorPositions['30']['stool.control.30C.4'] = [0.3158035694447645, 0.0725314492633861, -0.09616781682798844];
+g_vectorPositions['30']['stool.control.30C.5'] = [0.5769946751529662, 0.07347507335436522, -0.11684991479768418];
+g_vectorPositions['28'] = new Array();
+g_vectorPositions['28']['stool.control.28S.2'] = [-0.2065786419716387, 0.13525213704449768, 0.00361408790845252];
+g_vectorPositions['28']['stool.control.28S.3'] = [0.054612463736562894, 0.04061893369626288, -0.021495213941457515];
+g_vectorPositions['39'] = new Array();
+g_vectorPositions['39']['stool.control.39C.1'] = [-0.2065786419716387, -0.08187931335249052, -0.06858970741818837];
+g_vectorPositions['39']['stool.control.39C.2'] = [0.054612463736562894, -0.12232583857369801, -0.12840260076682775];
+g_vectorPositions['39']['stool.control.39C.3'] = [0.3158035694447645, -0.08880158646624757, -0.16931342750585593];
+g_vectorPositions['39']['stool.control.39C.4'] = [0.5769946751529662, -0.13337900468849517, -0.1472502712881158];
+g_vectorPositions['40'] = new Array();
+g_vectorPositions['40']['stool.control.40C.1'] = [-0.2065786419716387, 0.00027694864580823984, -0.10834106706520476];
+g_vectorPositions['40']['stool.control.40C.2'] = [0.054612463736562894, 0.03651255811014228, -0.06678090971683878];
+g_vectorPositions['40']['stool.control.40C.4'] = [0.3158035694447645, 0.07297373161363148, -0.10409098591924087];
+g_vectorPositions['40']['stool.control.40C.5'] = [0.5769946751529662, 0.10819084959856087, -0.10383390180121042];
+g_vectorPositions['27'] = new Array();
+g_vectorPositions['27']['stool.ASD.27.1'] = [-0.2065786419716387, 0.03717456778278546, 0.04864017735169779];
+g_vectorPositions['27']['stool.ASD.27.2'] = [0.054612463736562894, -0.09211376483242327, 0.04454462298879508];
+g_vectorPositions['27']['stool.ASD.27.4'] = [0.3158035694447645, -0.13222680305956633, 0.043096550969006574];
+g_vectorPositions['27']['stool.ASD.27.5'] = [0.5769946751529662, -0.16573717330734244, 0.05637983772278599];
+g_vectorPositions['7'] = new Array();
+g_vectorPositions['7']['stool.ASD.7.1'] = [-0.2065786419716387, 0.027126945091081565, 0.11311116091409965];
+g_vectorPositions['7']['stool.ASD.7.2'] = [0.054612463736562894, -0.0018112414727493133, 0.13508846127465138];
+g_vectorPositions['7']['stool.ASD.7.3'] = [0.3158035694447645, -0.07258224080268243, 0.18460355650446852];
+g_vectorPositions['7']['stool.ASD.7.4'] = [0.5769946751529662, -0.018353296166868392, 0.18948900277686948];
+g_vectorPositions['6'] = new Array();
+g_vectorPositions['6']['stool.ASD.6.1'] = [-0.2065786419716387, -0.15006197766178025, -0.08677200666648639];
+g_vectorPositions['6']['stool.ASD.6.2'] = [0.054612463736562894, -0.19300804592911955, -0.12627723959182865];
+g_vectorPositions['6']['stool.ASD.6.4'] = [0.3158035694447645, -0.06440877043097024, -0.08779494014843259];
+
+var g_comparisonPositions = new Array();
+var g_isSerialComparisonPlot = true;
+document.getElementById("logo").style.display = 'none';
+document.getElementById("logotable").style.display = 'none';
+
+ </script>
+</head>
+
+<body>
+
+<div id="overlay">
+    <div>
+    <img src="emperor_required_resources/img/emperor.png" alt="Emperor" id="small-logo"/>
+        <h1>WebGL is not enabled!</h1>
+        <p>Emperor's visualization framework is WebGL based, it seems that your system doesn't have this resource available. Here is what you can do:</p>
+        <p id="explanation"><strong>Chrome:</strong> Type "chrome://flags/" into the address bar, then search for "Disable WebGL". Disable this option if you haven't already. <em>Note:</em> If you follow these steps and still don't see an image, go to "chrome://flags/" and then search for "Override software rendering list" and enable this option.</p>
+        <p id="explanation"><strong>Safari:</strong> Open Safari's menu and select Preferences. Click on the advanced tab, and then check "Show Developer" menu. Then open the "Developer" menu and select "Enable WebGL".</p>
+        <p id="explanation"><strong>Firefox:</strong> Go to Options through Firefox > Options or Tools > Options. Go to Advanced, then General. Check "Use hardware acceleration when available" and restart Firefox.</p>
+        <p id="explanation"><strong>Other browsers:</strong> The only browsers that support WebGL are Chrome, Safari, and Firefox. Please switch to these browsers when using Emperor.</p>
+        <p id="explanation"><em>Note:</em> Once you went through these changes, reload the page and it should work!</p>
+        <p id="source">Sources: Instructions for <a href="https://www.biodigitalhuman.com/home/enabling-webgl.html">Chrome and Safari</a>, and <a href="http://www.infewbytes.com/?p=144">Firefox</a></p>
+    </div>
+</div>
+
+<div id="emperor-plot-toggle">
+    <form>
+      <div id="plottype">
+        <input id="pcoa" type="radio" id="pcoa" name="plottype" checked="checked" /><label for="pcoa">PCoA</label>
+        <input id="parallel" type="radio" id="parallel" name="plottype" /><label for="parallel">Parallel</label>
+      </div>
+    </form>
+</div>
+<div id="pcoaPlotWrapper" class="emperor-plot-wrapper">
+    <label id="pointCount" class="ontop">
+    </label>
+
+    <div id="finder" class="arrow-right">
+    </div>
+
+    <div id="labels" class="unselectable">
+    </div>
+
+    <div id="taxalabels" class="unselectable">
+    </div>
+
+    <div id="axislabels" class="axis-labels">
+    </div>
+
+    <div id="main-plot">
+    </div>
+</div>
+
+<div id="parallelPlotWrapper" class="emperor-plot-wrapper">
+</div>
+
+<div id="emperor-separator" class="emperor-separator" ondblclick="separatorDoubleClick()"></div>
+
+<div id="emperor-menu">
+    <div id="emperor-menu-tabs">
+        <ul>
+            <li><a href="#keytab">Key</a></li>
+            <li><a href="#colorby">Colors</a></li>
+            <li><a href="#showby">Visibility</a></li>
+            <li><a href="#scalingby">Scaling</a></li>
+            <li><a href="#labelby">Labels</a></li>
+            <li><a href="#axes">Axes</a></li>
+            <li><a href="#animations">Animations</a></li>
+            <li><a href="#options">Options</a></li>
+        </ul>
+        <div id="keytab" class="emperor-tab-div">
+            <form name="keyFilter">
+                <label>Filter  </label><input name="filterBox" id="searchBox" type="text" onkeyup="filterKey()"></input>
+            </form>
+            <div id="key">
+            </div>
+        </div>
+        <div id="colorby" class="emperor-tab-div">
+            <select id="colormap-drop-down" class="emperor-tab-drop-down" onchange="colorByMenuChanged()"></select>
+            
+            <br><br>
+            <select id="colorbycombo" onchange="colorByMenuChanged()" class="emperor-tab-drop-down">
+            </select>
+            <div class="list" id="colorbylist">
+            </div>
+        </div>
+        <div id="showby" class="emperor-tab-div">
+            <table class="emperor-tab-table">
+                <tr>
+                    <td>
+                        <select id="showbycombo" onchange="showByMenuChanged()" class="emperor-tab-drop-down">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="list" id="showbylist" style="height:100%%;width:100%%">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 12px; padding-right:12px;">
+                        <hr class='section-break'>
+                        <br>
+                        <label for="sphereopacity" class="text">Global Sphere Opacity</label>
+                        <label id="sphereopacity" class="slidervalue"></label>
+                        <div id="sopacityslider" class="slider-range-max"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <button id="toggle-visibility-selection-button" onClick="toggleVisibleCategories()">Invert Selected</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="scalingby" class="emperor-tab-div">
+            <table class="emperor-tab-table">
+                <tr>
+                    <td>
+                        <select id="scalingbycombo" onchange="scalingByMenuChanged()" class="emperor-tab-drop-down">
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="list" id="scalingbylist" style="height:100%%;width:100%%">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-left: 12px; padding-right:12px;">
+                        <hr class='section-break'>
+                        <br>
+                        <label for="sphereradius" class="text">Global Sphere Scale</label>
+                        <label id="sphereradius" class="slidervalue"></label>
+                        <div id="sradiusslider" class="slider-range-max"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="labelby" class="emperor-tab-div">
+            <div id="labels-top">
+                <form name="plotoptions">
+                    <input type="checkbox" onClick="toggleLabels()">Samples Label Visibility</input>
+                </form>
+                <br>
+                <label for="labelopacity" class="text">Label Opacity</label>
+                <label id="labelopacity" class="slidervalue"></label>
+                <div id="lopacityslider" class="slider-range-max"></div>
+                <div id="label-color-holder clearfix">
+                    <table class="emperor-tab-table">
+                        <tr><td><div id="labelColor" class="colorbox"></div></td><td><label>Master Label Color</label></td></tr>
+                        <br><br>
+                </table></div>
+            </div>
+            <br>
+            <select id="labelcombo" onchange="labelMenuChanged()" class="emperor-tab-drop-down">
+            </select>
+            <div class="list" id="label-list">
+            </div>
+        </div>
+        <div id="axes" class="emperor-tab-div">
+            <div id="pcoaaxes">
+                <div class="list" id="axeslist">
+                </div>
+            </div>
+        </div>
+        <div id="animations" class="emperor-tab-div">
+            <table class="emperor-tab-table-with-sliders">
+                <tr>
+                    <td>
+                        <a id="reset-button" class="media-button" href="javascript:void(0);" onclick="javascript:resetAnimation()"><img src="emperor_required_resources/img/reset.png" ></img></a>
+                        <a id="play-button" class="media-button" href="javascript:void(0);" onclick="javascript:playAnimation()"><img src="emperor_required_resources/img/play.png"></img></a>
+                        <a id="pause-button" class="media-button" href="javascript:void(0);" onclick="javascript:pauseAnimation()"><img src="emperor_required_resources/img/pause.png"></img></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="animation-speed" class="text">Speed</label>
+                        <label id="animation-speed" class="slidervalue"></label>
+                        <div id="animation-speed-slider" class="slider-range-max"></div>
+                        <div id="labelColorHolder clearfix">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br><label for="gradient-category-drop-down" class="text">Gradient Category</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="gradient-category-drop-down" class="emperor-tab-drop-down"></select><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="trajectory-category-drop-down" class="text">Trajectory Category</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="trajectory-category-drop-down" class="emperor-tab-drop-down" onchange="colorAnimationsByCategoryChanged()"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="emperor-animation-color-selector">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="options" class="emperor-tab-div">
+            <table class="emperor-tab-table">
+                <tr><td><div id="axeslabelscolor" class="colorbox" name="axeslabelscolor"></div></td><td title="Axes Labels Color">Axes Labels Color</td></tr>
+                <tr><td><div id="axescolor" class="colorbox" name="axescolor"></div></td><td title="Axes Color Title">Axes Color</td></tr>
+                <tr><td><div id="rendererbackgroundcolor" class="colorbox" name="rendererbackgroundcolor"></div></td><td title="Background Color Title">Background Color</td></tr>
+                <tr><td colspan="2">
+                        <div id="pcoaviewoptions" class="">
+            <br>
+            <label for="vectorsopacity" class="text">Vectors Opacity</label>
+            <label id="vectorsopacity" class="slidervalue"></label>
+            <div id="vopacityslider" class="slider-range-max"></div>
+                            <form name="settingsoptionscolor">
+                            </form>
+                            <div id="pcoaoptions" class="">
+                                <form name="settingsoptions">
+                                    <input type="checkbox" onchange="toggleScaleCoordinates(this)" id="scale_checkbox" name="scale_checkbox">Scale coords by percent explained</input>
+                                </form>
+                            </div>
+                            <br><input id="reset" class="button" type="submit" value="Recenter Camera" style="" onClick="resetCamera()">
+                            <br><br>
+                            <hr class='section-break'>
+                            <br>Filename <small>(only letters, numbers, ., - and _)</small>:
+                            <br><input name="saveas_name" id="saveas_name" value="screenshot" type="text"/>
+                            <br><input id="saveas_legends" class="checkbox" type="checkbox" style=""> Create legend
+                            <input id="saveas" class="button" type="submit" value="Save as SVG" style="" onClick="saveSVG()"/>
+                            <br><br>For a PNG, simply press 'ctrl+p'.
+                            <div id="paralleloptions" class="">
+                            </div>
+                        </div>
+                        <br>
+                </td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

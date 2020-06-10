@@ -1,0 +1,3 @@
+Linear Mixed Effects (LME) models for each relationship can be run from the corresponding script  in each folder. Each folder contains an R script with the input file containing the data created from either the raw values OR the absolute differences between the values on different days. 
+
+The goal of our project, and especially the included LME analysis was to understand changes within each individual *without* regard to the microbiome results of other individuals in each cohort. 

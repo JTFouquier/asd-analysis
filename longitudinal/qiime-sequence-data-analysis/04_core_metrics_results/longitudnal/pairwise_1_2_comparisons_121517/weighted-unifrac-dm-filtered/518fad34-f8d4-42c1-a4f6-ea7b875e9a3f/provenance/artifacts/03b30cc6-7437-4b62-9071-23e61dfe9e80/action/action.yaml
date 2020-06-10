@@ -1,0 +1,131 @@
+execution:
+    uuid: 95ada355-8282-4d50-9a15-c29a84e1288a
+    runtime:
+        start: 2017-09-28T13:37:22.495844-06:00
+        end: 2017-09-29T05:53:03.022744-06:00
+        duration: 16 hours, 15 minutes, 40 seconds, and 526900 microseconds
+
+action:
+    type: method
+    plugin: !ref 'environment:plugins:dada2'
+    action: denoise_paired
+    inputs:
+    -   demultiplexed_seqs: e7af6e2a-811e-40ff-b3e8-922aca7e4f52
+    parameters:
+    -   trunc_len_f: 148
+    -   trunc_len_r: 147
+    -   trim_left_f: 4
+    -   trim_left_r: 1
+    -   max_ee: 2.0
+    -   trunc_q: 2
+    -   chimera_method: consensus
+    -   min_fold_parent_over_abundance: 1.0
+    -   n_threads: 1
+    -   n_reads_learn: 1000000
+    -   hashed_feature_ids: true
+
+environment:
+    platform: macosx-10.7-x86_64
+    python: |-
+        3.5.4 |Continuum Analytics, Inc.| (default, Aug 14 2017, 12:43:10)
+        [GCC 4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.57)]
+    framework: 2017.8.0
+    plugins:
+        dada2:
+            version: 2017.8.0
+            website: http://benjjneb.github.io/dada2/
+    python-packages:
+        appnope: 0.1.0
+        bkcharts: '0.2'
+        bleach: 1.5.0
+        bokeh: 0.12.7
+        CacheControl: 0.12.3
+        click: '6.7'
+        cycler: 0.10.0
+        deblur: 1.0.2
+        decorator: 4.1.2
+        emperor: 1.0.0b8
+        entrypoints: 0.2.3
+        fastcluster: 1.1.23
+        future: 0.16.0
+        h5py: 2.7.0
+        html5lib: '0.9999999'
+        ipykernel: 4.6.1
+        ipython: 6.1.0
+        ipython-genutils: 0.2.0
+        ipywidgets: 6.0.0
+        jedi: 0.10.2
+        Jinja2: 2.9.6
+        jsonschema: 2.6.0
+        jupyter-client: 5.1.0
+        jupyter-core: 4.3.0
+        lockfile: 0.12.2
+        MarkupSafe: '1.0'
+        matplotlib: 2.0.2
+        mistune: 0.7.4
+        msgpack-python: 0.4.8
+        natsort: 5.1.0
+        nbconvert: 5.2.1
+        nbformat: 4.4.0
+        nose: 1.3.7
+        notebook: 5.0.0
+        numpy: 1.13.1
+        olefile: '0.44'
+        pandas: 0.20.3
+        pandocfilters: 1.4.2
+        patsy: 0.4.1
+        pexpect: 4.2.1
+        pickleshare: 0.7.4
+        Pillow: 4.2.1
+        pip: 9.0.1
+        prompt-toolkit: 1.0.15
+        psutil: 5.2.2
+        ptyprocess: 0.5.2
+        Pygments: 2.2.0
+        pyparsing: 2.2.0
+        python-dateutil: 2.6.1
+        pytz: '2017.2'
+        PyYAML: '3.12'
+        pyzmq: 16.0.2
+        q2-alignment: 2017.8.0
+        q2-composition: 2017.8.0
+        q2-dada2: 2017.8.0
+        q2-deblur: 2017.8.0
+        q2-demux: 2017.8.0
+        q2-diversity: 2017.8.0
+        q2-emperor: 2017.8.0
+        q2-feature-classifier: 2017.8.0
+        q2-feature-table: 2017.8.0
+        q2-gneiss: 2017.8.0
+        q2-longitudinal: 2017.8.0
+        q2-metadata: 2017.8.0
+        q2-phylogeny: 2017.8.0
+        q2-quality-filter: 2017.8.0
+        q2-sample-classifier: 2017.8.0
+        q2-taxa: 2017.8.0
+        q2-types: 2017.8.0
+        q2cli: 2017.8.0
+        q2templates: 2017.8.0
+        qiime2: 2017.8.0
+        requests: 2.14.2
+        scikit-bio: 0.5.1
+        scikit-learn: 0.19.0
+        scipy: 0.19.1
+        seaborn: '0.8'
+        simplegeneric: 0.8.1
+        six: 1.10.0
+        statsmodels: 0.8.0
+        terminado: '0.6'
+        testpath: '0.3'
+        tornado: 4.5.2
+        traitlets: 4.3.2
+        wcwidth: 0.1.7
+        wheel: 0.29.0
+        widgetsnbextension: 3.0.2
+        biom-format: 2.1.5
+        q2-ghost-tree: 0.0.1.dev0
+        ghost-tree: 0.0.1.dev0
+        gneiss: 0.4.1
+        ijson: '2.3'
+        setuptools: 27.2.0
+        tzlocal: '1.3'

@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red114\green44\blue253;\red255\green255\blue255;\red0\green0\blue0;
+\red47\green180\blue29;}
+{\*\expandedcolortbl;;\csgenericrgb\c44706\c17255\c99216;\csgray\c100000;\csgray\c0;
+\cssrgb\c20238\c73898\c14947;}
+\margl1440\margr1440\vieww25060\viewh13220\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 Producing genus level table to use in 
+\f1\fs22 \cb3 \CocoaLigature0 sample-classifier (random Forest):\cf4 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4 \cb3 (qiime2-2019.7) lozuponelabs-MacBook-Pro:combinedCohortsAnalysis Nancy$ qiime taxa collapse --i-table /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/id-filtered-table.qza --i-taxonomy /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/taxonomy.qza --p-level 6 --o-collapsed-table genusLevelCollapsedTable.qza\
+\cf5 Saved FeatureTable[Frequency] to: genusLevelCollapsedTable.qza\
+\
+Running random forest with this table:\
+\cf4 (qiime2-2019.7) lozuponelabs-MacBook-Pro:randomForest1016 Nancy$ qiime sample-classifier classify-samples --i-table /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/genusLevelCollapsedTable.qza --m-metadata-file /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/metadata/combineCohorts_metadata.tsv --m-metadata-column ASD --p-optimize-feature-selection --p-estimator RandomForestClassifier --p-n-estimators 5000 --p-n-jobs 6 --p-random-state 123 --output-dir randomForest1016\
+\cf5 Saved SampleEstimator[Classifier] to: randomForest1016/sample_estimator.qza\cf4 \
+\cf5 Saved FeatureData[Importance] to: randomForest1016/feature_importance.qza\cf4 \
+\cf5 Saved SampleData[ClassifierPredictions] to: randomForest1016/predictions.qza\cf4 \
+\cf5 Saved Visualization to: randomForest1016/model_summary.qzv\cf4 \
+\cf5 Saved Visualization to: randomForest1016/accuracy_results.qzv\cf4 \
+\cf5 Saved SampleData[Probabilities] to: randomForest1016/probabilities.qza\
+\
+Exporting feature_importance.qza to see which features were 0.01 or greater:\
+\cf4 (qiime2-2019.7) lozuponelabs-MacBook-Pro:randomForest1016 Nancy$ qiime tools export --input-path /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/randomForest1016/randomForestOutput/feature_importance.qza --output-path /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/randomForest1016/randomForestOutput/ \
+\
+Exporting genus level table to add count data to the metadata table:\
+(qiime2-2019.7) lozuponelabs-MacBook-Pro:randomForest1016 Nancy$ qiime tools export --input-path /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/genusLevelCollapsedTable.qza  --output-path /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/randomForest1016/randomForestOutput/ \
+\
+*** only added coprococcus and prevotella\
+\
+\
+Running sample-classifier (random Forest) with ASV table (counts):\
+(qiime2-2019.7) lozuponelabs-MacBook-Pro:tableRandomForest Nancy$ qiime sample-classifier classify-samples --i-table /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/id-filtered-table.qza --m-metadata-file /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/metadata/combineCohorts_metadata.tsv --m-metadata-column ASD --p-optimize-feature-selection --p-estimator RandomForestClassifier --p-n-estimators 5000 --p-n-jobs 6 --p-random-state 123 --output-dir randomForestOutput\
+\cf5 Saved SampleEstimator[Classifier] to: randomForestOutput/sample_estimator.qza\cf4 \
+\cf5 Saved FeatureData[Importance] to: randomForestOutput/feature_importance.qza\cf4 \
+\cf5 Saved SampleData[ClassifierPredictions] to: randomForestOutput/predictions.qza\cf4 \
+\cf5 Saved Visualization to: randomForestOutput/model_summary.qzv\cf4 \
+\cf5 Saved Visualization to: randomForestOutput/accuracy_results.qzv\cf4 \
+\cf5 Saved SampleData[Probabilities] to: randomForestOutput/probabilities.qza\
+\
+\
+Filter feature table with to only have the features that were important:\
+\cf4 (qiime2-2019.7) lozuponelabs-MacBook-Pro:tableRandomForest Nancy$ qiime feature-table filter-features --i-table /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/id-filtered-table.qza --m-metadata-file /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/randomForest1016/tableRandomForest/randomForestOutput/feature_importance.qza --o-filtered-table id_important-feature-table.qza\
+\cf5 Saved FeatureTable[Frequency] to: id_important-feature-table.qza\
+\
+Exporting important features:\
+\cf4 (qiime2-2019.7) lozuponelabs-MacBook-Pro:tableRandomForest Nancy$ qiime tools export --input-path /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/randomForest1016/tableRandomForest/id_important-feature-table.qza --output-path . \
+\
+Convert export to tsv to add to metadata:\
+(qiime2-2019.7) lozuponelabs-MacBook-Pro:tableRandomForest Nancy$ biom convert -i /Users/Nancy/Documents/Autism_Project/qiime2redo/mergedTables/combinedCohortsAnalysis/randomForest1016/tableRandomForest/feature-table.biom --to-tsv -o feature-table.tsv\
+\
+}

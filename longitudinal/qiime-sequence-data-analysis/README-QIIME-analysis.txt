@@ -1,0 +1,1 @@
+QIIME analysis was performed using QIIME 2 following the moving pictures tutorial and according to the details provided in the corresponding manuscript. Large files such as DEMUX results can be obtained upon request. Original sequences and mapping files used to generate all data are deposited into QIITA/EBI. 

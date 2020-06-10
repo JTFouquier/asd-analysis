@@ -1,0 +1,61 @@
+cor.test(time, weighted,  method = "pearson", use = "complete.obs")
+
+	Pearson's product-moment correlation
+
+data:  time and weighted
+t = 0.9578, df = 20, p-value = 0.3496
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2327363  0.5798340
+sample estimates:
+      cor 
+0.2094213 
+
+
+
+
+
+cor.test(time, unweighted,  method = "pearson", use = "complete.obs")
+
+	Pearson's product-moment correlation
+
+data:  time and unweighted
+t = 0.79936, df = 20, p-value = 0.4335
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2653381  0.5562946
+sample estimates:
+      cor 
+0.1759541 
+
+
+
+
+ASD alone
+
+> cor.test(time, unweighted,  method = "pearson", use = "complete.obs")
+
+	Pearson's product-moment correlation
+
+data:  time and unweighted
+t = -0.25303, df = 10, p-value = 0.8054
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.6250499  0.5178461
+sample estimates:
+        cor 
+-0.07975938 
+
+> cor.test(time, weighted,  method = "pearson", use = "complete.obs")
+
+	Pearson's product-moment correlation
+
+data:  time and weighted
+t = 1.6956, df = 10, p-value = 0.1208
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.1390639  0.8232023
+sample estimates:
+      cor 
+0.4725516 
+

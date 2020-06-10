@@ -1,0 +1,3 @@
+For distance matrices, when multiple categories were used "qiime diversity beta" was used (with the option for 'euclidean' metric), and when one category was needed, either "qiime metadata distance-matrix". Alternatively, for pairwise calculations, such as for percentage carbohydrates, a simple Euclidean distance (absolute value between the two scores) could be used for each difference between time points.
+
+Final distance matrices are "sparse", in this case, meaning that only distances within each individual matter--not distances between one individual and different individual.

@@ -1,0 +1,24 @@
+
+
+
+Adonis for Figure 1: PCoA plots of unweighted and weighted UniFrac distance metrics showing samples clustering by individuals from Colorado and no clustering by ASD status. 
+
+
+ASD was not significant when controlling for Cohort followed by GI symptoms. Cohort and GI symptoms had significant affects on the microbiome. 
+
+qiime diversity adonis --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza --m-metadata-file metadata/combineCohorts_metadataNoNA.txt --p-formula "Cohort+ConstipationDiarrheaAbdominalPain_GI_Score+ASD" --o-visualization adonis-CohortGIASD-NAs-fixed-unweighted.qzv
+
+qiime diversity adonis --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza --m-metadata-file metadata/combineCohorts_metadataNoNA.txt --p-formula "Cohort+ConstipationDiarrheaAbdominalPain_GI_Score+ASD" --o-visualization adonis-CohortGIASD-NAs-fixed-weighted.qzv
+
+ASD was not significant when controlling for GI symptoms only
+
+qiime diversity adonis --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza --m-metadata-file metadata/combineCohorts_metadataNoNA.txt --p-formula "ConstipationDiarrheaAbdominalPain_GI_Score+ASD" --o-visualization adonis-GIASD-NAs-fixed-unweighted.qzv
+
+qiime diversity adonis --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza --m-metadata-file metadata/combineCohorts_metadataNoNA.txt --p-formula "ConstipationDiarrheaAbdominalPain_GI_Score+ASD" --o-visualization adonis-GIASD-NAs-fixed-weighted.qzv
+
+
+ASD was significant when controlling for cohort only
+
+qiime diversity adonis --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza --m-metadata-file metadata/combineCohorts_metadataNoNA.txt --p-formula "Cohort+ASD" --o-visualization adonis-CohortASD-NAs-fixed-unweighted.qzv
+
+qiime diversity adonis --i-distance-matrix core-metrics-results/weighted_unifrac_distance_matrix.qza --m-metadata-file metadata/combineCohorts_metadataNoNA.txt --p-formula "Cohort+ASD" --o-visualization adonis-CohortASD-NAs-fixed-weighted.qzv

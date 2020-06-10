@@ -1,0 +1,141 @@
+
+
+
+
+
+
+UNWEIGHTED ########
+
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: time ~ (1 | subject)
+
+     AIC      BIC   logLik deviance df.resid 
+   117.0    120.3    -55.5    111.0       19 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.1833 -0.8037 -0.2566  0.8540  2.1421 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept) 0.000    0.000   
+ Residual             9.097    3.016   
+Number of obs: 22, groups:  subject, 14
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)    6.539      0.643   10.17
+> 
+> # FULL MODEL
+> model.full = lmer(time ~ unweighted_unifrac+(1|subject), REML=FALSE)
+> print("model.full")
+[1] "model.full"
+> print(summary(model.full))
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: time ~ unweighted_unifrac + (1 | subject)
+
+     AIC      BIC   logLik deviance df.resid 
+   118.3    122.7    -55.2    110.3       18 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.3167 -0.7483 -0.3314  0.9692  2.1498 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept) 0.000    0.000   
+ Residual             8.815    2.969   
+Number of obs: 22, groups:  subject, 14
+
+Fixed effects:
+                   Estimate Std. Error t value
+(Intercept)           4.391      2.640   1.663
+unweighted_unifrac    7.707      9.193   0.838
+
+Correlation of Fixed Effects:
+            (Intr)
+unwghtd_nfr -0.971
+> 
+> print("###### ANOVA ######")
+[1] "###### ANOVA ######"
+> model_anova = anova(model.full, model.reduced)
+> print(model_anova)
+Data: NULL
+Models:
+model.reduced: time ~ (1 | subject)
+model.full: time ~ unweighted_unifrac + (1 | subject)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)
+model.reduced  3 117.01 120.28 -55.504   111.01                         
+model.full     4 118.32 122.68 -55.158   110.32 0.6919      1     0.4055
+
+
+
+
+
+
+
+WEIGHTED ########
+
+
+> print(summary(model.reduced))
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: time ~ (1 | subject)
+
+     AIC      BIC   logLik deviance df.resid 
+   117.0    120.3    -55.5    111.0       19 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.1833 -0.8037 -0.2566  0.8540  2.1421 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept) 0.000    0.000   
+ Residual             9.097    3.016   
+Number of obs: 22, groups:  subject, 14
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)    6.539      0.643   10.17
+> 
+> # FULL MODEL
+> model.full = lmer(time ~ weighted_unifrac+(1|subject), REML=FALSE)
+> print("model.full")
+[1] "model.full"
+> print(summary(model.full))
+Linear mixed model fit by maximum likelihood  ['lmerMod']
+Formula: time ~ weighted_unifrac + (1 | subject)
+
+     AIC      BIC   logLik deviance df.resid 
+   118.0    122.4    -55.0    110.0       18 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.1965 -0.7153 -0.2886  0.7900  2.1166 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ subject  (Intercept) 0.000    0.000   
+ Residual             8.698    2.949   
+Number of obs: 22, groups:  subject, 14
+
+Fixed effects:
+                 Estimate Std. Error t value
+(Intercept)         5.091      1.573   3.236
+weighted_unifrac    6.657      6.626   1.005
+
+Correlation of Fixed Effects:
+            (Intr)
+weghtd_nfrc -0.917
+> 
+> print("###### ANOVA ######")
+[1] "###### ANOVA ######"
+> model_anova = anova(model.full, model.reduced)
+> print(model_anova)
+Data: NULL
+Models:
+model.reduced: time ~ (1 | subject)
+model.full: time ~ weighted_unifrac + (1 | subject)
+              Df    AIC    BIC  logLik deviance  Chisq Chi Df Pr(>Chisq)
+model.reduced  3 117.01 120.28 -55.504   111.01                         
+model.full     4 118.02 122.39 -55.011   110.02 0.9867      1     0.3206
